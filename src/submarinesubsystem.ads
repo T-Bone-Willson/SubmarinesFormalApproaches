@@ -65,6 +65,33 @@ package SubmarineSubSystem with SPARK_Mode is
      NuclearSubmarine.LockingTwo = Unlocked,
      Post => NuclearSubmarine.LockingTwo = Locked;
 
+   --Airlock Door One Open
+   procedure D1Open with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.LockingOne = Unlocked and then
+     NuclearSubmarine.ClosingOne = Closed,
+     Post => NuclearSubmarine.ClosingOne = Open;
+
+   -- Airlock Door Two Open
+   procedure D2Open with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.LockingTwo = Unlocked and then
+     NuclearSubmarine.ClosingTwo = Closed,
+     Post => NuclearSubmarine.ClosingTwo = Open;
+
+   --Airlock Door One Unlock
+   procedure D1Unlock with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.ClosingOne = Closed and then NuclearSubmarine.LockingOne = Locked,
+     Post => NuclearSubmarine.ClosingOne = Closed and then NuclearSubmarine.LockingOne = Unlocked;
+
+   -- Airlock Door Two Unlock
+   procedure D2Unlock with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.ClosingTwo = Closed and then NuclearSubmarine.LockingTwo = Locked,
+     Post => NuclearSubmarine.ClosingTwo =Closed and then NuclearSubmarine.LockingTwo = Unlocked;
+
+
 
 
 

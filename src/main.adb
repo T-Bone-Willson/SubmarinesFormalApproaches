@@ -44,12 +44,37 @@ begin
    Put_Line(NuclearSubmarine.LockingOne'Image);
    Put_Line("Airlock Door two is: ");
    Put_Line(NuclearSubmarine.LockingTwo'Image);
+   Put_Line("Try Opening Airlock Door one: ");
+   D1Open;
+   Put_Line("Status of Airlock Door one: ");
+   Put_Line(NuclearSubmarine.ClosingOne'Image);
+   Put_Line(NuclearSubmarine.LockingOne'Image);
+   Put_Line("Lock secure!");
+   Put_Line("Try Opening Airlock Door Two: ");
+   D2Open;
+   Put_Line("Status of Airlock Door Two: ");
+   Put_Line(NuclearSubmarine.ClosingTwo'Image);
+   Put_Line(NuclearSubmarine.LockingTwo'Image);
+   Put_Line("Lock secure!");
    Put_Line("Is Nuclear Submarine Operational: ");
    StartSubmarine;
    Put_Line(NuclearSubmarine.GoodToGo'Image);
    Put_Line("Can we Fire?");
    SubmarineAction;
    Put_Line(NuclearSubmarine.OpTest'Image);
+   Put_Line("TEST!");
+   D1Unlock;
+   D2Unlock;
+   D1Open;
+   D2Open;
+   SubmarineAction;
+   Put_Line(NuclearSubmarine.LockingOne'Image);
+   Put_Line(NuclearSubmarine.LockingTwo'Image);
+   Put_Line(NuclearSubmarine.ClosingOne'Image);
+   Put_Line(NuclearSubmarine.ClosingTwo'Image);
+   Put_Line(NuclearSubmarine.GoodToGo'Image);
+   Put_Line(NuclearSubmarine.OpTest'Image);
+
 
 
 
