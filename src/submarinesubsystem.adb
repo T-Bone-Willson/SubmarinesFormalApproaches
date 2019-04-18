@@ -2,7 +2,9 @@ package body SubmarineSubSystem with SPARK_Mode is
 
    procedure StartSubmarine is
    begin
-      NuclearSubmarine.GoodToGo := On;
+      if (NuclearSubmarine.GoodToGo = Off) then
+         NuclearSubmarine.GoodToGo := On;
+         end if;
    end StartSubmarine;
 
 
