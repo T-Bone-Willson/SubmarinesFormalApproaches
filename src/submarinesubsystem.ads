@@ -21,10 +21,12 @@ package SubmarineSubSystem with SPARK_Mode is
                                     ClosingTwo => Open, LockingOne => Unlocked,
                                    LockingTwo => Unlocked);
 
-   --procedure StartSubmarine with
-     --Global => (In_Out => NuclearSubmarine),
-     --Pre => NuclearSubmarine.GoodToGo = Off,
-     --Post => NuclearSubmarine.GoodToGo = On;
+   procedure StartSubmarine with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.GoodToGo = Off and then NuclearSubmarine.ClosingOne = Closed
+     and then NuclearSubmarine.LockingOne = Locked and then NuclearSubmarine.ClosingTwo = Closed
+     and then NuclearSubmarine.LockingTwo = Locked,
+     Post => NuclearSubmarine.GoodToGo = On;
 
    procedure D1Close with -- Might need to add "And" for if it's opened and Unlocked
      Global => (In_Out => NuclearSubmarine),

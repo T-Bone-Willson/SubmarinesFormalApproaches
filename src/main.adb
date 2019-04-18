@@ -3,13 +3,13 @@ with Ada.Text_IO; use Ada.Text_IO;
 
 procedure Main is
 begin
-   --Put_Line--("Nuclear Submarine is: ");
-   --Put_Line--(NuclearSubmarine.GoodToGo'Image);
-   --Put_Line("Try Starting Submarine");
-   --StartSubmarine;
-   --Put_Line--("Now Nuclear Submarine is: ");
-   --Put_Line(NuclearSubmarine.GoodToGo'Image);
-
+   Put_Line("Nuclear Submarine is: ");
+   Put_Line(NuclearSubmarine.GoodToGo'Image);
+   Put_Line("Try Starting Submarine");
+   StartSubmarine;
+   Put_Line("Now Nuclear Submarine is: ");
+   Put_Line(NuclearSubmarine.GoodToGo'Image);
+   Put_Line("Need to Close Both Doors to be operational: ");
    Put_Line("Airlock Door one is: ");
    Put_Line(NuclearSubmarine.ClosingOne'Image);
    Put_Line("Airlock Door two is: ");
@@ -22,6 +22,10 @@ begin
    D2Close;
    Put_Line("Airlock Door two is: ");
    Put_Line(NuclearSubmarine.ClosingTwo'Image);
+   Put_Line("Is Nuclear Submarin operational yet: ");
+   StartSubmarine;
+   Put_Line(NuclearSubmarine.GoodToGo'Image);
+   Put_Line("Need to Lock Both Doors to be operational: ");
    Put_Line("Priming for Airlock Door locking: ");
    Put_Line("Airlock Door one lock is: ");
    Put_Line(NuclearSubmarine.LockingOne'Image);
@@ -34,6 +38,10 @@ begin
    Put_Line(NuclearSubmarine.LockingOne'Image);
    Put_Line("Airlock Door two is: ");
    Put_Line(NuclearSubmarine.LockingTwo'Image);
+   Put_Line("Is Nuclear Submarine Operational: ");
+   StartSubmarine;
+   Put_Line(NuclearSubmarine.GoodToGo'Image);
+
 
 
 
