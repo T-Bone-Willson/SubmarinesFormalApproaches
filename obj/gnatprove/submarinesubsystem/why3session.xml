@@ -47,6 +47,17 @@
   <goal name="WP_parameter def.0" expl="postcondition" proved="true">
   <proof prover="0"><result status="valid" steps="5"/></proof>
   </goal>
+  <goal name="WP_parameter def.1">
+  <proof prover="0"><result status="unknown" steps="54"/></proof>
+  <proof prover="1"><result status="unknown" steps="54"/></proof>
+  <transf name="split_disj" >
+   <goal name="WP_parameter def.1.0">
+   <proof prover="1"><result status="unknown" steps="54"/></proof>
+   </goal>
+   <goal name="WP_parameter def.1.1">
+   </goal>
+  </transf>
+  </goal>
  </transf>
  </goal>
 </theory>
@@ -55,6 +66,17 @@
  <transf name="split_goal_wp_conj" proved="true" >
   <goal name="WP_parameter def.0" expl="postcondition" proved="true">
   <proof prover="0"><result status="valid" steps="5"/></proof>
+  </goal>
+  <goal name="WP_parameter def.1">
+  <proof prover="0"><result status="unknown" steps="54"/></proof>
+  <proof prover="1"><result status="unknown" steps="54"/></proof>
+  <transf name="split_disj" >
+   <goal name="WP_parameter def.1.0">
+   <proof prover="1"><result status="unknown" steps="54"/></proof>
+   </goal>
+   <goal name="WP_parameter def.1.1">
+   </goal>
+  </transf>
   </goal>
  </transf>
  </goal>

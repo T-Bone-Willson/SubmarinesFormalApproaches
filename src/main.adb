@@ -7,7 +7,7 @@ begin
    Put_Line("Nuclear Submarine is: ");
    Put_Line(NuclearSubmarine.GoodToGo'Image);
    Put_Line("Try Starting Submarine");
-   --StartSubmarine;
+   StartSubmarine;
    Put_Line("Now Nuclear Submarine is: ");
    Put_Line(NuclearSubmarine.GoodToGo'Image);
    Put_Line("Can we Fire? ");
@@ -27,7 +27,7 @@ begin
    Put_Line("Airlock Door two is: ");
    Put_Line(NuclearSubmarine.ClosingTwo'Image);
    Put_Line("Is Nuclear Submarin operational yet: ");
-   --StartSubmarine;
+   StartSubmarine;
    Put_Line(NuclearSubmarine.GoodToGo'Image);
    Put_Line("Can we Fire?");
    SubmarineAction;
