@@ -10,13 +10,18 @@ Initialization                    .         .          .          .           . 
 Non-Aliasing                      .         .          .          .           .           .          .
 Run-time Checks                   .         .          .          .           .           .          .
 Assertions                        .         .          .          .           .           .          .
-Functional Contracts              1         .          .          .    1 (CVC4)           .          .
+Functional Contracts              4         .          .          .    4 (CVC4)           .          .
 LSP Verification                  .         .          .          .           .           .          .
 ------------------------------------------------------------------------------------------------------
-Total                             1         .          .          .    1 (100%)           .          .
+Total                             4         .          .          .    4 (100%)           .          .
 
 
-Analyzed 1 unit
-in unit submarinesubsystem, 2 subprograms and packages out of 2 analyzed
+Analyzed 2 units
+in unit main, 0 subprograms and packages out of 1 analyzed
+  Main at main.adb:4 skipped
+in unit submarinesubsystem, 5 subprograms and packages out of 5 analyzed
   SubmarineSubSystem at submarinesubsystem.ads:1 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
-  SubmarineSubSystem.StartSubmarine at submarinesubsystem.ads:11 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.D1Close at submarinesubsystem.ads:29 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.D1Lock at submarinesubsystem.ads:39 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.D2Close at submarinesubsystem.ads:34 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.D2Lock at submarinesubsystem.ads:45 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)

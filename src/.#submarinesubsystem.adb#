@@ -30,12 +30,8 @@ package body SubmarineSubSystem with SPARK_Mode is
       end if;
    end D2Lock;
 
-
-
-
-
-  -- procedure StartSubmarine is
-  -- begin
+  procedure StartSubmarine is
+  begin
   --    if (NuclearSubmarine.GoodToGo = Off) then
    --      NuclearSubmarine.GoodToGo := On;
   --       end if;

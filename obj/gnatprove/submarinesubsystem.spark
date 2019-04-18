@@ -11,11 +11,41 @@
       "spark": "all"
     },
     {
-      "name": "SubmarineSubSystem.StartSubmarine",
+      "name": "SubmarineSubSystem.D1Close",
       "sloc": [
         {
           "file": "submarinesubsystem.ads",
-          "line": 11
+          "line": 29
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SubmarineSubSystem.D2Close",
+      "sloc": [
+        {
+          "file": "submarinesubsystem.ads",
+          "line": 34
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SubmarineSubSystem.D1Lock",
+      "sloc": [
+        {
+          "file": "submarinesubsystem.ads",
+          "line": 39
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SubmarineSubSystem.D2Lock",
+      "sloc": [
+        {
+          "file": "submarinesubsystem.ads",
+          "line": 45
         }
       ],
       "spark": "all"
@@ -26,16 +56,16 @@
   "proof": [
     {
       "file": "submarinesubsystem.ads",
-      "line": 14,
+      "line": 32,
       "col": 14,
       "rule": "VC_POSTCONDITION",
       "severity": "info",
       "entity": {
-        "name": "SubmarineSubSystem.StartSubmarine",
+        "name": "SubmarineSubSystem.D1Close",
         "sloc": [
           {
             "file": "submarinesubsystem.ads",
-            "line": 11
+            "line": 29
           }
         ]
       },
@@ -45,7 +75,7 @@
             "CVC4": {
               "result": "Valid",
               "steps": 5,
-              "time": 2.00000000000000E-02
+              "time": 3.00000000000000E-02
             }
           },
           "transformations": {
@@ -53,19 +83,235 @@
         }
       ],
       "check_file": "submarinesubsystem.ads",
-      "check_line": 14,
+      "check_line": 32,
       "check_col": 14,
       "how_proved": "prover",
       "stats": {
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 1.99999995529652E-02
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "submarinesubsystem.ads",
+      "line": 49,
+      "col": 14,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SubmarineSubSystem.D2Lock",
+        "sloc": [
+          {
+            "file": "submarinesubsystem.ads",
+            "line": 45
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "submarinesubsystem.ads",
+      "check_line": 49,
+      "check_col": 14,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "submarinesubsystem.ads",
+      "line": 37,
+      "col": 14,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SubmarineSubSystem.D2Close",
+        "sloc": [
+          {
+            "file": "submarinesubsystem.ads",
+            "line": 34
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "submarinesubsystem.ads",
+      "check_line": 37,
+      "check_col": 14,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "submarinesubsystem.ads",
+      "line": 43,
+      "col": 14,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SubmarineSubSystem.D1Lock",
+        "sloc": [
+          {
+            "file": "submarinesubsystem.ads",
+            "line": 39
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "submarinesubsystem.ads",
+      "check_line": 43,
+      "check_col": 14,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
         }
       }
     }
   ],
   "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "SubmarineSubSystem.D1Close",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 29
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SubmarineSubSystem.D1Close",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 29
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SubmarineSubSystem.D1Close",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 29
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "SubmarineSubSystem.D2Close",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 34
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SubmarineSubSystem.D2Close",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 34
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SubmarineSubSystem.D2Close",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 34
+            }
+          ]
+        }
+      }
+    },
     {
       "assumptions": [
       ],
@@ -88,11 +334,11 @@
       "claim": {
         "predicate": "CLAIM_POST",
         "arg": {
-          "name": "SubmarineSubSystem.StartSubmarine",
+          "name": "SubmarineSubSystem.D2Lock",
           "sloc": [
             {
               "file": "submarinesubsystem.ads",
-              "line": 11
+              "line": 45
             }
           ]
         }
@@ -104,11 +350,11 @@
       "claim": {
         "predicate": "CLAIM_EFFECTS",
         "arg": {
-          "name": "SubmarineSubSystem.StartSubmarine",
+          "name": "SubmarineSubSystem.D2Lock",
           "sloc": [
             {
               "file": "submarinesubsystem.ads",
-              "line": 11
+              "line": 45
             }
           ]
         }
@@ -120,11 +366,59 @@
       "claim": {
         "predicate": "CLAIM_AORTE",
         "arg": {
-          "name": "SubmarineSubSystem.StartSubmarine",
+          "name": "SubmarineSubSystem.D2Lock",
           "sloc": [
             {
               "file": "submarinesubsystem.ads",
-              "line": 11
+              "line": 45
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "SubmarineSubSystem.D1Lock",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 39
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SubmarineSubSystem.D1Lock",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 39
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SubmarineSubSystem.D1Lock",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 39
             }
           ]
         }
@@ -132,14 +426,14 @@
     }
   ],
   "timings": {
-    "marking": 1.76500005181879E-04,
-    "globals (basic)": 5.23400027304888E-04,
-    "globals/properties (advanced)": 1.18120003025979E-03,
-    "flow analysis": 1.73589994665235E-03,
-    "codepeer results": 8.89999955688836E-06,
-    "init_why_sections": 2.47199990553781E-04,
-    "translation of standard": 3.34189995191991E-03,
-    "translation of compilation unit": 1.43249996472150E-03,
-    "proof": 6.31657183170319E-01
+    "marking": 2.18000001041219E-04,
+    "globals (basic)": 4.99400019180030E-04,
+    "globals/properties (advanced)": 9.50700021348894E-04,
+    "flow analysis": 6.60170009359717E-03,
+    "codepeer results": 9.49999957811087E-06,
+    "init_why_sections": 2.61300010606647E-04,
+    "translation of standard": 3.10730002820492E-03,
+    "translation of compilation unit": 4.55379998311400E-03,
+    "proof": 9.44342613220215E-01
   }
 }
