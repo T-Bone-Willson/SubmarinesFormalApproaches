@@ -15,7 +15,7 @@
  <goal name="WP_parameter def" expl="VC for def" proved="true">
  <transf name="split_goal_wp_conj" proved="true" >
   <goal name="WP_parameter def.0" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" steps="13"/></proof>
+  <proof prover="0"><result status="valid" steps="5"/></proof>
   </goal>
   <goal name="WP_parameter def.4">
   <proof prover="0"><result status="valid" steps="13"/></proof>
@@ -23,10 +23,10 @@
   <goal name="WP_parameter def.2">
   <proof prover="0"><result status="valid" steps="13"/></proof>
   </goal>
-  <goal name="WP_parameter def.3">
+  <goal name="WP_parameter def.0">
   <proof prover="0"><result status="valid" steps="13"/></proof>
   </goal>
-  <goal name="WP_parameter def.1">
+  <goal name="WP_parameter def.3">
   <proof prover="0"><result status="valid" steps="13"/></proof>
   </goal>
  </transf>

@@ -36,7 +36,9 @@ package SubmarineSubSystem with SPARK_Mode is
    -- Can only do if Submarine is operational, TEST!
    procedure SubmarineAction with
      Global => (In_Out => NuclearSubmarine),
-     Pre => NuclearSubmarine.GoodToGo = On,
+     Pre => NuclearSubmarine.GoodToGo = On and then NuclearSubmarine.ClosingOne = Closed
+     and then NuclearSubmarine.LockingOne = Locked and then NuclearSubmarine.ClosingTwo = Closed
+     and then NuclearSubmarine.LockingTwo = Locked,
      Post => NuclearSubmarine.OpTest = Fire;
 
    -- Airlock Door One Close

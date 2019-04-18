@@ -17,16 +17,16 @@
   <goal name="WP_parameter def.0" expl="postcondition" proved="true">
   <proof prover="0"><result status="valid" steps="13"/></proof>
   </goal>
-  <goal name="WP_parameter def.1" expl="postcondition" proved="true">
+  <goal name="WP_parameter def.4">
   <proof prover="0"><result status="valid" steps="13"/></proof>
   </goal>
-  <goal name="WP_parameter def.2" expl="postcondition" proved="true">
+  <goal name="WP_parameter def.2">
   <proof prover="0"><result status="valid" steps="13"/></proof>
   </goal>
-  <goal name="WP_parameter def.3" expl="postcondition" proved="true">
+  <goal name="WP_parameter def.3">
   <proof prover="0"><result status="valid" steps="13"/></proof>
   </goal>
-  <goal name="WP_parameter def.4" expl="postcondition" proved="true">
+  <goal name="WP_parameter def.1">
   <proof prover="0"><result status="valid" steps="13"/></proof>
   </goal>
  </transf>
