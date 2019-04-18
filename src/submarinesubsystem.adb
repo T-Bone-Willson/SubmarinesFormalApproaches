@@ -30,14 +30,21 @@ package body SubmarineSubSystem with SPARK_Mode is
       end if;
    end D2Lock;
 
-  procedure StartSubmarine is
-  begin
+   procedure StartSubmarine is
+   begin
       if (NuclearSubmarine.GoodToGo = Off and then NuclearSubmarine.ClosingOne = Closed
-     and then NuclearSubmarine.LockingOne = Locked and then NuclearSubmarine.ClosingTwo = Closed
+      and then NuclearSubmarine.LockingOne = Locked and then NuclearSubmarine.ClosingTwo = Closed
           and then NuclearSubmarine.LockingTwo = Locked) then
          NuclearSubmarine.GoodToGo := On;
       end if;
-  end StartSubmarine;
+   end StartSubmarine;
+
+   procedure SubmarineAction is
+   begin
+      if (NuclearSubmarine.GoodToGo = On) then
+         NuclearSubmarine.OpTest := Fire;
+      end if;
+   end SubmarineAction;
 
 
 

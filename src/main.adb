@@ -9,6 +9,9 @@ begin
    StartSubmarine;
    Put_Line("Now Nuclear Submarine is: ");
    Put_Line(NuclearSubmarine.GoodToGo'Image);
+   Put_Line("Can we Fire? ");
+   SubmarineAction;
+   Put_Line(NuclearSubmarine.OpTest'Image);
    Put_Line("Need to Close Both Doors to be operational: ");
    Put_Line("Airlock Door one is: ");
    Put_Line(NuclearSubmarine.ClosingOne'Image);
@@ -25,6 +28,9 @@ begin
    Put_Line("Is Nuclear Submarin operational yet: ");
    StartSubmarine;
    Put_Line(NuclearSubmarine.GoodToGo'Image);
+   Put_Line("Can we Fire?");
+   SubmarineAction;
+   Put_Line(NuclearSubmarine.OpTest'Image);
    Put_Line("Need to Lock Both Doors to be operational: ");
    Put_Line("Priming for Airlock Door locking: ");
    Put_Line("Airlock Door one lock is: ");
@@ -41,6 +47,9 @@ begin
    Put_Line("Is Nuclear Submarine Operational: ");
    StartSubmarine;
    Put_Line(NuclearSubmarine.GoodToGo'Image);
+   Put_Line("Can we Fire?");
+   SubmarineAction;
+   Put_Line(NuclearSubmarine.OpTest'Image);
 
 
 

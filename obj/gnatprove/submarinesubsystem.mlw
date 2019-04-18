@@ -1695,7 +1695,64 @@ module Submarinesubsystem__operational__rep
 
 end
 
-(* Module for axiomatizing type "airdoorone" defined at submarinesubsystem.ads:5, created in Gnat2Why.Types.Translate_Type *)
+(* Module for axiomatizing type "dosomething" defined at submarinesubsystem.ads:5, created in Gnat2Why.Types.Translate_Type *)
+module Submarinesubsystem__dosomething
+ use import "_gnatprove_standard".Main
+ use import "int".Int
+
+ type dosomething 
+ 
+ function first 
+   : int =
+  0
+ 
+ function last 
+   : int =
+  1
+ 
+ predicate in_range 
+   (x : int)  =
+  ( (first <= x) /\ (x <= last) )
+ 
+ clone export "ada__model".Static_Discrete with
+ type t = dosomething, 
+ function first = first, 
+ function last = last, 
+ predicate in_range = in_range
+ 
+ type dosomething__ref =
+  { mutable dosomething__content "model_trace:" "name:" : dosomething }
+ 
+ function dosomething__ref___projection 
+   (a : dosomething__ref) : dosomething =
+  a.dosomething__content
+ 
+ meta "model_projection" function dosomething__ref___projection
+ 
+ meta "inline : no" function dosomething__ref___projection
+ 
+ val dosomething__havoc 
+   (x : dosomething__ref) : unit
+  writes {x}
+
+end
+
+(* Module defining to_rep/of_rep for type "dosomething" defined at submarinesubsystem.ads:5, created in Gnat2Why.Types.Translate_Type *)
+module Submarinesubsystem__dosomething__rep
+ use        Submarinesubsystem__dosomething
+ use import "_gnatprove_standard".Main
+
+ clone export "ada__model".Rep_Proj_Int with
+ type t = Submarinesubsystem__dosomething.dosomething, 
+ predicate in_range = Submarinesubsystem__dosomething.in_range
+ 
+ meta "model_projection" function to_rep
+ 
+ meta "inline : no" function to_rep
+
+end
+
+(* Module for axiomatizing type "airdoorone" defined at submarinesubsystem.ads:7, created in Gnat2Why.Types.Translate_Type *)
 module Submarinesubsystem__airdoorone
  use import "_gnatprove_standard".Main
  use import "int".Int
@@ -1737,7 +1794,7 @@ module Submarinesubsystem__airdoorone
 
 end
 
-(* Module defining to_rep/of_rep for type "airdoorone" defined at submarinesubsystem.ads:5, created in Gnat2Why.Types.Translate_Type *)
+(* Module defining to_rep/of_rep for type "airdoorone" defined at submarinesubsystem.ads:7, created in Gnat2Why.Types.Translate_Type *)
 module Submarinesubsystem__airdoorone__rep
  use        Submarinesubsystem__airdoorone
  use import "_gnatprove_standard".Main
@@ -1752,7 +1809,7 @@ module Submarinesubsystem__airdoorone__rep
 
 end
 
-(* Module for axiomatizing type "airdoortwo" defined at submarinesubsystem.ads:6, created in Gnat2Why.Types.Translate_Type *)
+(* Module for axiomatizing type "airdoortwo" defined at submarinesubsystem.ads:8, created in Gnat2Why.Types.Translate_Type *)
 module Submarinesubsystem__airdoortwo
  use import "_gnatprove_standard".Main
  use import "int".Int
@@ -1794,7 +1851,7 @@ module Submarinesubsystem__airdoortwo
 
 end
 
-(* Module defining to_rep/of_rep for type "airdoortwo" defined at submarinesubsystem.ads:6, created in Gnat2Why.Types.Translate_Type *)
+(* Module defining to_rep/of_rep for type "airdoortwo" defined at submarinesubsystem.ads:8, created in Gnat2Why.Types.Translate_Type *)
 module Submarinesubsystem__airdoortwo__rep
  use        Submarinesubsystem__airdoortwo
  use import "_gnatprove_standard".Main
@@ -1809,7 +1866,7 @@ module Submarinesubsystem__airdoortwo__rep
 
 end
 
-(* Module for axiomatizing type "dooronelock" defined at submarinesubsystem.ads:8, created in Gnat2Why.Types.Translate_Type *)
+(* Module for axiomatizing type "dooronelock" defined at submarinesubsystem.ads:10, created in Gnat2Why.Types.Translate_Type *)
 module Submarinesubsystem__dooronelock
  use import "_gnatprove_standard".Main
  use import "int".Int
@@ -1851,7 +1908,7 @@ module Submarinesubsystem__dooronelock
 
 end
 
-(* Module defining to_rep/of_rep for type "dooronelock" defined at submarinesubsystem.ads:8, created in Gnat2Why.Types.Translate_Type *)
+(* Module defining to_rep/of_rep for type "dooronelock" defined at submarinesubsystem.ads:10, created in Gnat2Why.Types.Translate_Type *)
 module Submarinesubsystem__dooronelock__rep
  use        Submarinesubsystem__dooronelock
  use import "_gnatprove_standard".Main
@@ -1866,7 +1923,7 @@ module Submarinesubsystem__dooronelock__rep
 
 end
 
-(* Module for axiomatizing type "doortwolock" defined at submarinesubsystem.ads:9, created in Gnat2Why.Types.Translate_Type *)
+(* Module for axiomatizing type "doortwolock" defined at submarinesubsystem.ads:11, created in Gnat2Why.Types.Translate_Type *)
 module Submarinesubsystem__doortwolock
  use import "_gnatprove_standard".Main
  use import "int".Int
@@ -1908,7 +1965,7 @@ module Submarinesubsystem__doortwolock
 
 end
 
-(* Module defining to_rep/of_rep for type "doortwolock" defined at submarinesubsystem.ads:9, created in Gnat2Why.Types.Translate_Type *)
+(* Module defining to_rep/of_rep for type "doortwolock" defined at submarinesubsystem.ads:11, created in Gnat2Why.Types.Translate_Type *)
 module Submarinesubsystem__doortwolock__rep
  use        Submarinesubsystem__doortwolock
  use import "_gnatprove_standard".Main
@@ -1923,11 +1980,13 @@ module Submarinesubsystem__doortwolock__rep
 
 end
 
-(* Module for axiomatizing the record theory associated to type "submarine" defined at submarinesubsystem.ads:12, created in Why.Gen.Records.Create_Rep_Record_Theory_If_Needed *)
+(* Module for axiomatizing the record theory associated to type "submarine" defined at submarinesubsystem.ads:14, created in Why.Gen.Records.Create_Rep_Record_Theory_If_Needed *)
 module Submarinesubsystem__submarine__rep
  use import "_gnatprove_standard".Main
  use        Submarinesubsystem__operational
  use        Submarinesubsystem__operational__rep
+ use        Submarinesubsystem__dosomething
+ use        Submarinesubsystem__dosomething__rep
  use        Submarinesubsystem__airdoorone
  use        Submarinesubsystem__airdoorone__rep
  use        Submarinesubsystem__airdoortwo
@@ -1938,9 +1997,9 @@ module Submarinesubsystem__submarine__rep
  use        Submarinesubsystem__doortwolock__rep
 
  type __split_fields =
-  { rec__submarinesubsystem__submarine__goodtogo "model_trace:.2608" "name:GoodToGo" : Submarinesubsystem__operational.operational; rec__submarinesubsystem__submarine__closingone "model_trace:.2618" "name:ClosingOne" : Submarinesubsystem__airdoorone.airdoorone; rec__submarinesubsystem__submarine__closingtwo "model_trace:.2628" "name:ClosingTwo" : Submarinesubsystem__airdoortwo.airdoortwo; rec__submarinesubsystem__submarine__lockingone "model_trace:.2638" "name:LockingOne" : Submarinesubsystem__dooronelock.dooronelock; rec__submarinesubsystem__submarine__lockingtwo "model_trace:.2648" "name:LockingTwo" : Submarinesubsystem__doortwolock.doortwolock }
+  { rec__submarinesubsystem__submarine__goodtogo "model_trace:.2655" "name:GoodToGo" : Submarinesubsystem__operational.operational; rec__submarinesubsystem__submarine__optest "model_trace:.2665" "name:OpTest" : Submarinesubsystem__dosomething.dosomething; rec__submarinesubsystem__submarine__closingone "model_trace:.2675" "name:ClosingOne" : Submarinesubsystem__airdoorone.airdoorone; rec__submarinesubsystem__submarine__closingtwo "model_trace:.2685" "name:ClosingTwo" : Submarinesubsystem__airdoortwo.airdoortwo; rec__submarinesubsystem__submarine__lockingone "model_trace:.2695" "name:LockingOne" : Submarinesubsystem__dooronelock.dooronelock; rec__submarinesubsystem__submarine__lockingtwo "model_trace:.2705" "name:LockingTwo" : Submarinesubsystem__doortwolock.doortwolock }
  
- function __split_fields_GoodToGo__projection "model_trace:.2608" "name:GoodToGo" 
+ function __split_fields_GoodToGo__projection "model_trace:.2655" "name:GoodToGo" 
    (a : __split_fields) : Submarinesubsystem__operational.operational =
   a.rec__submarinesubsystem__submarine__goodtogo
  
@@ -1948,7 +2007,15 @@ module Submarinesubsystem__submarine__rep
  
  meta "inline : no" function __split_fields_GoodToGo__projection
  
- function __split_fields_ClosingOne__projection "model_trace:.2618" "name:ClosingOne" 
+ function __split_fields_OpTest__projection "model_trace:.2665" "name:OpTest" 
+   (a : __split_fields) : Submarinesubsystem__dosomething.dosomething =
+  a.rec__submarinesubsystem__submarine__optest
+ 
+ meta "model_projection" function __split_fields_OpTest__projection
+ 
+ meta "inline : no" function __split_fields_OpTest__projection
+ 
+ function __split_fields_ClosingOne__projection "model_trace:.2675" "name:ClosingOne" 
    (a : __split_fields) : Submarinesubsystem__airdoorone.airdoorone =
   a.rec__submarinesubsystem__submarine__closingone
  
@@ -1956,7 +2023,7 @@ module Submarinesubsystem__submarine__rep
  
  meta "inline : no" function __split_fields_ClosingOne__projection
  
- function __split_fields_ClosingTwo__projection "model_trace:.2628" "name:ClosingTwo" 
+ function __split_fields_ClosingTwo__projection "model_trace:.2685" "name:ClosingTwo" 
    (a : __split_fields) : Submarinesubsystem__airdoortwo.airdoortwo =
   a.rec__submarinesubsystem__submarine__closingtwo
  
@@ -1964,7 +2031,7 @@ module Submarinesubsystem__submarine__rep
  
  meta "inline : no" function __split_fields_ClosingTwo__projection
  
- function __split_fields_LockingOne__projection "model_trace:.2638" "name:LockingOne" 
+ function __split_fields_LockingOne__projection "model_trace:.2695" "name:LockingOne" 
    (a : __split_fields) : Submarinesubsystem__dooronelock.dooronelock =
   a.rec__submarinesubsystem__submarine__lockingone
  
@@ -1972,7 +2039,7 @@ module Submarinesubsystem__submarine__rep
  
  meta "inline : no" function __split_fields_LockingOne__projection
  
- function __split_fields_LockingTwo__projection "model_trace:.2648" "name:LockingTwo" 
+ function __split_fields_LockingTwo__projection "model_trace:.2705" "name:LockingTwo" 
    (a : __split_fields) : Submarinesubsystem__doortwolock.doortwolock =
   a.rec__submarinesubsystem__submarine__lockingtwo
  
@@ -2023,6 +2090,15 @@ module Submarinesubsystem__submarine__rep
   requires {  (submarinesubsystem__submarine__goodtogo__pred a) }
   ensures {  (result = a.__split_fields.rec__submarinesubsystem__submarine__goodtogo) }
  
+ predicate submarinesubsystem__submarine__optest__pred 
+   (a : __rep)  =
+  true
+ 
+ val rec__submarinesubsystem__submarine__optest_ 
+   (a : __rep) : Submarinesubsystem__dosomething.dosomething
+  requires {  (submarinesubsystem__submarine__optest__pred a) }
+  ensures {  (result = a.__split_fields.rec__submarinesubsystem__submarine__optest) }
+ 
  predicate submarinesubsystem__submarine__closingone__pred 
    (a : __rep)  =
   true
@@ -2061,13 +2137,13 @@ module Submarinesubsystem__submarine__rep
  
  function bool_eq 
    (a : __rep) (b : __rep) : bool =
-  (if (( ( ( ( ((Submarinesubsystem__operational__rep.to_rep a.__split_fields.rec__submarinesubsystem__submarine__goodtogo) = (Submarinesubsystem__operational__rep.to_rep b.__split_fields.rec__submarinesubsystem__submarine__goodtogo)) /\ ((Submarinesubsystem__airdoorone__rep.to_rep a.__split_fields.rec__submarinesubsystem__submarine__closingone) = (Submarinesubsystem__airdoorone__rep.to_rep b.__split_fields.rec__submarinesubsystem__submarine__closingone)) ) /\ ((Submarinesubsystem__airdoortwo__rep.to_rep a.__split_fields.rec__submarinesubsystem__submarine__closingtwo) = (Submarinesubsystem__airdoortwo__rep.to_rep b.__split_fields.rec__submarinesubsystem__submarine__closingtwo)) ) /\ ((Submarinesubsystem__dooronelock__rep.to_rep a.__split_fields.rec__submarinesubsystem__submarine__lockingone) = (Submarinesubsystem__dooronelock__rep.to_rep b.__split_fields.rec__submarinesubsystem__submarine__lockingone)) ) /\ ((Submarinesubsystem__doortwolock__rep.to_rep a.__split_fields.rec__submarinesubsystem__submarine__lockingtwo) = (Submarinesubsystem__doortwolock__rep.to_rep b.__split_fields.rec__submarinesubsystem__submarine__lockingtwo)) )) then (
+  (if (( ( ( ( ( ((Submarinesubsystem__operational__rep.to_rep a.__split_fields.rec__submarinesubsystem__submarine__goodtogo) = (Submarinesubsystem__operational__rep.to_rep b.__split_fields.rec__submarinesubsystem__submarine__goodtogo)) /\ ((Submarinesubsystem__dosomething__rep.to_rep a.__split_fields.rec__submarinesubsystem__submarine__optest) = (Submarinesubsystem__dosomething__rep.to_rep b.__split_fields.rec__submarinesubsystem__submarine__optest)) ) /\ ((Submarinesubsystem__airdoorone__rep.to_rep a.__split_fields.rec__submarinesubsystem__submarine__closingone) = (Submarinesubsystem__airdoorone__rep.to_rep b.__split_fields.rec__submarinesubsystem__submarine__closingone)) ) /\ ((Submarinesubsystem__airdoortwo__rep.to_rep a.__split_fields.rec__submarinesubsystem__submarine__closingtwo) = (Submarinesubsystem__airdoortwo__rep.to_rep b.__split_fields.rec__submarinesubsystem__submarine__closingtwo)) ) /\ ((Submarinesubsystem__dooronelock__rep.to_rep a.__split_fields.rec__submarinesubsystem__submarine__lockingone) = (Submarinesubsystem__dooronelock__rep.to_rep b.__split_fields.rec__submarinesubsystem__submarine__lockingone)) ) /\ ((Submarinesubsystem__doortwolock__rep.to_rep a.__split_fields.rec__submarinesubsystem__submarine__lockingtwo) = (Submarinesubsystem__doortwolock__rep.to_rep b.__split_fields.rec__submarinesubsystem__submarine__lockingtwo)) )) then (
    True) else (
    False))
 
 end
 
-(* Module for axiomatizing type "submarine" defined at submarinesubsystem.ads:12, created in Gnat2Why.Types.Translate_Type *)
+(* Module for axiomatizing type "submarine" defined at submarinesubsystem.ads:14, created in Gnat2Why.Types.Translate_Type *)
 module Submarinesubsystem__submarine
  use export Submarinesubsystem__submarine__rep
  use import "_gnatprove_standard".Main
@@ -2119,6 +2195,24 @@ module Submarinesubsystem__submarine
  
  axiom submarinesubsystem__submarine__goodtogo__position_axiom :
   ((submarinesubsystem__submarine__goodtogo__position ) >= 0)
+ 
+ function submarinesubsystem__submarine__optest__first__bit 
+   : int
+ 
+ function submarinesubsystem__submarine__optest__last__bit 
+   : int
+ 
+ function submarinesubsystem__submarine__optest__position 
+   : int
+ 
+ axiom submarinesubsystem__submarine__optest__first__bit_axiom :
+  ((submarinesubsystem__submarine__optest__first__bit ) >= 0)
+ 
+ axiom submarinesubsystem__submarine__optest__last__bit_axiom :
+  ((submarinesubsystem__submarine__optest__last__bit ) > (submarinesubsystem__submarine__optest__first__bit ))
+ 
+ axiom submarinesubsystem__submarine__optest__position_axiom :
+  ((submarinesubsystem__submarine__optest__position ) >= 0)
  
  function submarinesubsystem__submarine__closingone__first__bit 
    : int
@@ -2214,19 +2308,19 @@ module Submarinesubsystem__submarine
   writes {x}
 
 end
-(* Module for defining a ref holding the value of variable "nuclearsubmarine" defined at submarinesubsystem.ads:20, created in Gnat2Why.Decls.Translate_Variable *)
+(* Module for defining a ref holding the value of variable "nuclearsubmarine" defined at submarinesubsystem.ads:23, created in Gnat2Why.Decls.Translate_Variable *)
 module Submarinesubsystem__nuclearsubmarine
  use import "_gnatprove_standard".Main
  use        Submarinesubsystem__submarine
 
- val nuclearsubmarine__split_fields #"submarinesubsystem.ads" 20 0 0#"model_projected" "model_trace:2660" "name:NuclearSubmarine"  : Submarinesubsystem__submarine.__split_fields__ref 
+ val nuclearsubmarine__split_fields #"submarinesubsystem.ads" 23 0 0#"model_projected" "model_trace:2717" "name:NuclearSubmarine"  : Submarinesubsystem__submarine.__split_fields__ref 
  
  function attr__ATTRIBUTE_ADDRESS 
    : int
 
 end
 
-(* Module giving an empty axiom for the entity "nuclearsubmarine" defined at submarinesubsystem.ads:20, created in Gnat2Why.Driver.Translate_Entity.Generate_Empty_Axiom_Theory *)
+(* Module giving an empty axiom for the entity "nuclearsubmarine" defined at submarinesubsystem.ads:23, created in Gnat2Why.Driver.Translate_Entity.Generate_Empty_Axiom_Theory *)
 module Submarinesubsystem__nuclearsubmarine___axiom
  use import "_gnatprove_standard".Main
 
@@ -2595,35 +2689,42 @@ module Standard__universal_integer___axiom
 
 end
 
-(* Module for possibly declaring a logic function for "startsubmarine" defined at submarinesubsystem.ads:24, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
+(* Module for possibly declaring a logic function for "startsubmarine" defined at submarinesubsystem.ads:27, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
 module Submarinesubsystem__startsubmarine
  use import "_gnatprove_standard".Main
 
 
 end
 
-(* Module for possibly declaring a logic function for "d1close" defined at submarinesubsystem.ads:31, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
+(* Module for possibly declaring a logic function for "submarineaction" defined at submarinesubsystem.ads:34, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
+module Submarinesubsystem__submarineaction
+ use import "_gnatprove_standard".Main
+
+
+end
+
+(* Module for possibly declaring a logic function for "d1close" defined at submarinesubsystem.ads:39, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
 module Submarinesubsystem__d1close
  use import "_gnatprove_standard".Main
 
 
 end
 
-(* Module for possibly declaring a logic function for "d2close" defined at submarinesubsystem.ads:36, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
+(* Module for possibly declaring a logic function for "d2close" defined at submarinesubsystem.ads:44, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
 module Submarinesubsystem__d2close
  use import "_gnatprove_standard".Main
 
 
 end
 
-(* Module for possibly declaring a logic function for "d1lock" defined at submarinesubsystem.ads:41, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
+(* Module for possibly declaring a logic function for "d1lock" defined at submarinesubsystem.ads:49, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
 module Submarinesubsystem__d1lock
  use import "_gnatprove_standard".Main
 
 
 end
 
-(* Module for possibly declaring a logic function for "d2lock" defined at submarinesubsystem.ads:47, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
+(* Module for possibly declaring a logic function for "d2lock" defined at submarinesubsystem.ads:55, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
 module Submarinesubsystem__d2lock
  use import "_gnatprove_standard".Main
 
@@ -2647,16 +2748,16 @@ module Submarinesubsystem__operational___axiom
 
 end
 
-(* Module giving axioms for type "airdoorone" defined at submarinesubsystem.ads:5, created in Gnat2Why.Types.Generate_Type_Completion *)
-module Submarinesubsystem__airdoorone___axiom
+(* Module giving axioms for type "dosomething" defined at submarinesubsystem.ads:5, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Submarinesubsystem__dosomething___axiom
  use import "_gnatprove_standard".Main
  use import "int".Int
- use        Submarinesubsystem__airdoorone
+ use        Submarinesubsystem__dosomething
 
  predicate dynamic_invariant "inline" 
    (temp___expr_165 : int) (temp___is_init_161 : bool) (temp___skip_constant_162 : bool) (temp___do_toplevel_163 : bool) (temp___do_typ_inv_164 : bool)  =
-  (if (( temp___is_init_161 \/ (Submarinesubsystem__airdoorone.first <= Submarinesubsystem__airdoorone.last) )) then (
-   (Submarinesubsystem__airdoorone.dynamic_property Submarinesubsystem__airdoorone.first Submarinesubsystem__airdoorone.last temp___expr_165)) else true)
+  (if (( temp___is_init_161 \/ (Submarinesubsystem__dosomething.first <= Submarinesubsystem__dosomething.last) )) then (
+   (Submarinesubsystem__dosomething.dynamic_property Submarinesubsystem__dosomething.first Submarinesubsystem__dosomething.last temp___expr_165)) else true)
  
  predicate default_initial_assumption "inline" 
    (temp___expr_166 : int) (temp___skip_top_level_167 : bool)  =
@@ -2664,16 +2765,16 @@ module Submarinesubsystem__airdoorone___axiom
 
 end
 
-(* Module giving axioms for type "airdoortwo" defined at submarinesubsystem.ads:6, created in Gnat2Why.Types.Generate_Type_Completion *)
-module Submarinesubsystem__airdoortwo___axiom
+(* Module giving axioms for type "airdoorone" defined at submarinesubsystem.ads:7, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Submarinesubsystem__airdoorone___axiom
  use import "_gnatprove_standard".Main
  use import "int".Int
- use        Submarinesubsystem__airdoortwo
+ use        Submarinesubsystem__airdoorone
 
  predicate dynamic_invariant "inline" 
    (temp___expr_172 : int) (temp___is_init_168 : bool) (temp___skip_constant_169 : bool) (temp___do_toplevel_170 : bool) (temp___do_typ_inv_171 : bool)  =
-  (if (( temp___is_init_168 \/ (Submarinesubsystem__airdoortwo.first <= Submarinesubsystem__airdoortwo.last) )) then (
-   (Submarinesubsystem__airdoortwo.dynamic_property Submarinesubsystem__airdoortwo.first Submarinesubsystem__airdoortwo.last temp___expr_172)) else true)
+  (if (( temp___is_init_168 \/ (Submarinesubsystem__airdoorone.first <= Submarinesubsystem__airdoorone.last) )) then (
+   (Submarinesubsystem__airdoorone.dynamic_property Submarinesubsystem__airdoorone.first Submarinesubsystem__airdoorone.last temp___expr_172)) else true)
  
  predicate default_initial_assumption "inline" 
    (temp___expr_173 : int) (temp___skip_top_level_174 : bool)  =
@@ -2681,16 +2782,16 @@ module Submarinesubsystem__airdoortwo___axiom
 
 end
 
-(* Module giving axioms for type "dooronelock" defined at submarinesubsystem.ads:8, created in Gnat2Why.Types.Generate_Type_Completion *)
-module Submarinesubsystem__dooronelock___axiom
+(* Module giving axioms for type "airdoortwo" defined at submarinesubsystem.ads:8, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Submarinesubsystem__airdoortwo___axiom
  use import "_gnatprove_standard".Main
  use import "int".Int
- use        Submarinesubsystem__dooronelock
+ use        Submarinesubsystem__airdoortwo
 
  predicate dynamic_invariant "inline" 
    (temp___expr_179 : int) (temp___is_init_175 : bool) (temp___skip_constant_176 : bool) (temp___do_toplevel_177 : bool) (temp___do_typ_inv_178 : bool)  =
-  (if (( temp___is_init_175 \/ (Submarinesubsystem__dooronelock.first <= Submarinesubsystem__dooronelock.last) )) then (
-   (Submarinesubsystem__dooronelock.dynamic_property Submarinesubsystem__dooronelock.first Submarinesubsystem__dooronelock.last temp___expr_179)) else true)
+  (if (( temp___is_init_175 \/ (Submarinesubsystem__airdoortwo.first <= Submarinesubsystem__airdoortwo.last) )) then (
+   (Submarinesubsystem__airdoortwo.dynamic_property Submarinesubsystem__airdoortwo.first Submarinesubsystem__airdoortwo.last temp___expr_179)) else true)
  
  predicate default_initial_assumption "inline" 
    (temp___expr_180 : int) (temp___skip_top_level_181 : bool)  =
@@ -2698,16 +2799,16 @@ module Submarinesubsystem__dooronelock___axiom
 
 end
 
-(* Module giving axioms for type "doortwolock" defined at submarinesubsystem.ads:9, created in Gnat2Why.Types.Generate_Type_Completion *)
-module Submarinesubsystem__doortwolock___axiom
+(* Module giving axioms for type "dooronelock" defined at submarinesubsystem.ads:10, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Submarinesubsystem__dooronelock___axiom
  use import "_gnatprove_standard".Main
  use import "int".Int
- use        Submarinesubsystem__doortwolock
+ use        Submarinesubsystem__dooronelock
 
  predicate dynamic_invariant "inline" 
    (temp___expr_186 : int) (temp___is_init_182 : bool) (temp___skip_constant_183 : bool) (temp___do_toplevel_184 : bool) (temp___do_typ_inv_185 : bool)  =
-  (if (( temp___is_init_182 \/ (Submarinesubsystem__doortwolock.first <= Submarinesubsystem__doortwolock.last) )) then (
-   (Submarinesubsystem__doortwolock.dynamic_property Submarinesubsystem__doortwolock.first Submarinesubsystem__doortwolock.last temp___expr_186)) else true)
+  (if (( temp___is_init_182 \/ (Submarinesubsystem__dooronelock.first <= Submarinesubsystem__dooronelock.last) )) then (
+   (Submarinesubsystem__dooronelock.dynamic_property Submarinesubsystem__dooronelock.first Submarinesubsystem__dooronelock.last temp___expr_186)) else true)
  
  predicate default_initial_assumption "inline" 
    (temp___expr_187 : int) (temp___skip_top_level_188 : bool)  =
@@ -2715,21 +2816,38 @@ module Submarinesubsystem__doortwolock___axiom
 
 end
 
-(* Module giving axioms for type "submarine" defined at submarinesubsystem.ads:12, created in Gnat2Why.Types.Generate_Type_Completion *)
+(* Module giving axioms for type "doortwolock" defined at submarinesubsystem.ads:11, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Submarinesubsystem__doortwolock___axiom
+ use import "_gnatprove_standard".Main
+ use import "int".Int
+ use        Submarinesubsystem__doortwolock
+
+ predicate dynamic_invariant "inline" 
+   (temp___expr_193 : int) (temp___is_init_189 : bool) (temp___skip_constant_190 : bool) (temp___do_toplevel_191 : bool) (temp___do_typ_inv_192 : bool)  =
+  (if (( temp___is_init_189 \/ (Submarinesubsystem__doortwolock.first <= Submarinesubsystem__doortwolock.last) )) then (
+   (Submarinesubsystem__doortwolock.dynamic_property Submarinesubsystem__doortwolock.first Submarinesubsystem__doortwolock.last temp___expr_193)) else true)
+ 
+ predicate default_initial_assumption "inline" 
+   (temp___expr_194 : int) (temp___skip_top_level_195 : bool)  =
+  true
+
+end
+
+(* Module giving axioms for type "submarine" defined at submarinesubsystem.ads:14, created in Gnat2Why.Types.Generate_Type_Completion *)
 module Submarinesubsystem__submarine___axiom
  use import "_gnatprove_standard".Main
  use        Submarinesubsystem__submarine
 
  predicate dynamic_invariant "inline" 
-   (temp___expr_193 : Submarinesubsystem__submarine.submarine) (temp___is_init_189 : bool) (temp___skip_constant_190 : bool) (temp___do_toplevel_191 : bool) (temp___do_typ_inv_192 : bool)  =
+   (temp___expr_200 : Submarinesubsystem__submarine.submarine) (temp___is_init_196 : bool) (temp___skip_constant_197 : bool) (temp___do_toplevel_198 : bool) (temp___do_typ_inv_199 : bool)  =
   true
  
  predicate default_initial_assumption "inline" 
-   (temp___expr_194 : Submarinesubsystem__submarine.submarine) (temp___skip_top_level_195 : bool)  =
+   (temp___expr_201 : Submarinesubsystem__submarine.submarine) (temp___skip_top_level_202 : bool)  =
   true
 
 end
-(* Module for declaring a program function (and possibly an axiom) for "startsubmarine" defined at submarinesubsystem.ads:24, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+(* Module for declaring a program function (and possibly an axiom) for "startsubmarine" defined at submarinesubsystem.ads:27, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
 module Submarinesubsystem__startsubmarine___axiom
  use        Submarinesubsystem__nuclearsubmarine
  use import "_gnatprove_standard".Main
@@ -2757,7 +2875,29 @@ module Submarinesubsystem__startsubmarine___axiom
 
 end
 
-(* Module for declaring a program function (and possibly an axiom) for "d1close" defined at submarinesubsystem.ads:31, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+(* Module for declaring a program function (and possibly an axiom) for "submarineaction" defined at submarinesubsystem.ads:34, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module Submarinesubsystem__submarineaction___axiom
+ use        Submarinesubsystem__nuclearsubmarine
+ use import "_gnatprove_standard".Main
+ use import "int".Int
+ use        Submarinesubsystem__operational
+ use        Submarinesubsystem__operational__rep
+ use        Submarinesubsystem__dosomething
+ use        Submarinesubsystem__dosomething__rep
+ use        Submarinesubsystem__submarine
+ use        Submarinesubsystem__submarine___axiom
+ use        Submarinesubsystem__nuclearsubmarine
+
+ val submarineaction 
+   (__void_param : unit) : unit
+  requires {  ((Submarinesubsystem__operational__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) }
+  ensures {  ( ((Submarinesubsystem__dosomething__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__optest (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) /\ (Submarinesubsystem__submarine___axiom.dynamic_invariant { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } True True True True) ) }
+  reads {Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields}
+  writes {Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields}
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "d1close" defined at submarinesubsystem.ads:39, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
 module Submarinesubsystem__d1close___axiom
  use        Submarinesubsystem__nuclearsubmarine
  use import "_gnatprove_standard".Main
@@ -2777,7 +2917,7 @@ module Submarinesubsystem__d1close___axiom
 
 end
 
-(* Module for declaring a program function (and possibly an axiom) for "d2close" defined at submarinesubsystem.ads:36, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+(* Module for declaring a program function (and possibly an axiom) for "d2close" defined at submarinesubsystem.ads:44, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
 module Submarinesubsystem__d2close___axiom
  use        Submarinesubsystem__nuclearsubmarine
  use import "_gnatprove_standard".Main
@@ -2797,7 +2937,7 @@ module Submarinesubsystem__d2close___axiom
 
 end
 
-(* Module for declaring a program function (and possibly an axiom) for "d1lock" defined at submarinesubsystem.ads:41, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+(* Module for declaring a program function (and possibly an axiom) for "d1lock" defined at submarinesubsystem.ads:49, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
 module Submarinesubsystem__d1lock___axiom
  use        Submarinesubsystem__nuclearsubmarine
  use import "_gnatprove_standard".Main
@@ -2819,7 +2959,7 @@ module Submarinesubsystem__d1lock___axiom
 
 end
 
-(* Module for declaring a program function (and possibly an axiom) for "d2lock" defined at submarinesubsystem.ads:47, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+(* Module for declaring a program function (and possibly an axiom) for "d2lock" defined at submarinesubsystem.ads:55, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
 module Submarinesubsystem__d2lock___axiom
  use        Submarinesubsystem__nuclearsubmarine
  use import "_gnatprove_standard".Main
@@ -2847,6 +2987,8 @@ module Submarinesubsystem__package_def
  use import "int".Int
  use        Submarinesubsystem__operational
  use        Submarinesubsystem__operational__rep
+ use        Submarinesubsystem__dosomething
+ use        Submarinesubsystem__dosomething__rep
  use        Submarinesubsystem__airdoorone
  use        Submarinesubsystem__airdoorone__rep
  use        Submarinesubsystem__airdoortwo
@@ -2859,6 +3001,7 @@ module Submarinesubsystem__package_def
  use        Submarinesubsystem__submarine___axiom
  use        Submarinesubsystem__nuclearsubmarine
  use        Submarinesubsystem__operational___axiom
+ use        Submarinesubsystem__dosomething___axiom
  use        Submarinesubsystem__airdoorone___axiom
  use        Submarinesubsystem__airdoortwo___axiom
  use        Submarinesubsystem__dooronelock___axiom
@@ -2874,56 +3017,63 @@ module Submarinesubsystem__package_def
   ( (#"submarinesubsystem.ads" 1 0 0# ());
   (#"submarinesubsystem.ads" 3 0 0# ());
   (#"submarinesubsystem.ads" 5 0 0# ());
-  (#"submarinesubsystem.ads" 6 0 0# ());
+  (#"submarinesubsystem.ads" 7 0 0# ());
   (#"submarinesubsystem.ads" 8 0 0# ());
-  (#"submarinesubsystem.ads" 9 0 0# ());
-  (#"submarinesubsystem.ads" 12 0 0# ());
-  (#"submarinesubsystem.ads" 20 0 0# ());
-  (#"submarinesubsystem.ads" 20 0 0# ());
-  (#"submarinesubsystem.ads" 20 0 0# ());
-  (#"submarinesubsystem.ads" 20 0 0# ());
-  (#"submarinesubsystem.ads" 20 0 0# ());
-  (#"submarinesubsystem.ads" 20 0 0# ());
-  (#"submarinesubsystem.ads" 20 0 0# ( (let submarinesubsystem__nuclearsubmarine__assume = { Submarinesubsystem__submarine.__split_fields = { Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo = (Submarinesubsystem__operational__rep.of_rep(1)); Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone = (Submarinesubsystem__airdoorone__rep.of_rep(1)); Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo = (Submarinesubsystem__airdoortwo__rep.of_rep(1)); Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone = (Submarinesubsystem__dooronelock__rep.of_rep(1)); Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo = (Submarinesubsystem__doortwolock__rep.of_rep(1)) } } in (
-   #"submarinesubsystem.ads" 20 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(submarinesubsystem__nuclearsubmarine__assume)) )))
+  (#"submarinesubsystem.ads" 10 0 0# ());
+  (#"submarinesubsystem.ads" 11 0 0# ());
+  (#"submarinesubsystem.ads" 14 0 0# ());
+  (#"submarinesubsystem.ads" 23 0 0# ());
+  (#"submarinesubsystem.ads" 23 0 0# ());
+  (#"submarinesubsystem.ads" 23 0 0# ());
+  (#"submarinesubsystem.ads" 23 0 0# ());
+  (#"submarinesubsystem.ads" 23 0 0# ());
+  (#"submarinesubsystem.ads" 23 0 0# ());
+  (#"submarinesubsystem.ads" 23 0 0# ());
+  (#"submarinesubsystem.ads" 23 0 0# ( (let submarinesubsystem__nuclearsubmarine__assume = { Submarinesubsystem__submarine.__split_fields = { Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo = (Submarinesubsystem__operational__rep.of_rep(1)); Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__optest = (Submarinesubsystem__dosomething__rep.of_rep(1)); Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone = (Submarinesubsystem__airdoorone__rep.of_rep(1)); Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo = (Submarinesubsystem__airdoortwo__rep.of_rep(1)); Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone = (Submarinesubsystem__dooronelock__rep.of_rep(1)); Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo = (Submarinesubsystem__doortwolock__rep.of_rep(1)) } } in (
+   #"submarinesubsystem.ads" 23 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(submarinesubsystem__nuclearsubmarine__assume)) )))
   ;
-  #"submarinesubsystem.ads" 20 0 0# assume { #"submarinesubsystem.ads" 20 0 0# (Submarinesubsystem__submarine___axiom.dynamic_invariant { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } True False True True) } ));
-  (#"submarinesubsystem.ads" 24 0 0# ());
-  (#"submarinesubsystem.ads" 29 0 0# ());
-  (#"submarinesubsystem.ads" 26 0 0# ());
-  (#"submarinesubsystem.ads" 26 0 0# ());
+  #"submarinesubsystem.ads" 23 0 0# assume { #"submarinesubsystem.ads" 23 0 0# (Submarinesubsystem__submarine___axiom.dynamic_invariant { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } True False True True) } ));
   (#"submarinesubsystem.ads" 27 0 0# ());
-  (#"submarinesubsystem.ads" 27 0 0# ());
-  (#"submarinesubsystem.ads" 26 0 0# ());
-  (#"submarinesubsystem.ads" 25 0 0# ());
-  (#"submarinesubsystem.ads" 31 0 0# ());
-  (#"submarinesubsystem.ads" 34 0 0# ());
-  (#"submarinesubsystem.ads" 33 0 0# ());
   (#"submarinesubsystem.ads" 32 0 0# ());
-  (#"submarinesubsystem.ads" 36 0 0# ());
-  (#"submarinesubsystem.ads" 39 0 0# ());
-  (#"submarinesubsystem.ads" 38 0 0# ());
+  (#"submarinesubsystem.ads" 29 0 0# ());
+  (#"submarinesubsystem.ads" 29 0 0# ());
+  (#"submarinesubsystem.ads" 30 0 0# ());
+  (#"submarinesubsystem.ads" 30 0 0# ());
+  (#"submarinesubsystem.ads" 29 0 0# ());
+  (#"submarinesubsystem.ads" 28 0 0# ());
+  (#"submarinesubsystem.ads" 34 0 0# ());
   (#"submarinesubsystem.ads" 37 0 0# ());
-  (#"submarinesubsystem.ads" 41 0 0# ());
-  (#"submarinesubsystem.ads" 45 0 0# ());
-  (#"submarinesubsystem.ads" 43 0 0# ());
-  (#"submarinesubsystem.ads" 43 0 0# ());
+  (#"submarinesubsystem.ads" 36 0 0# ());
+  (#"submarinesubsystem.ads" 35 0 0# ());
+  (#"submarinesubsystem.ads" 39 0 0# ());
   (#"submarinesubsystem.ads" 42 0 0# ());
+  (#"submarinesubsystem.ads" 41 0 0# ());
+  (#"submarinesubsystem.ads" 40 0 0# ());
+  (#"submarinesubsystem.ads" 44 0 0# ());
   (#"submarinesubsystem.ads" 47 0 0# ());
+  (#"submarinesubsystem.ads" 46 0 0# ());
+  (#"submarinesubsystem.ads" 45 0 0# ());
+  (#"submarinesubsystem.ads" 49 0 0# ());
+  (#"submarinesubsystem.ads" 53 0 0# ());
   (#"submarinesubsystem.ads" 51 0 0# ());
-  (#"submarinesubsystem.ads" 49 0 0# ());
-  (#"submarinesubsystem.ads" 49 0 0# ());
-  (#"submarinesubsystem.ads" 48 0 0# ());
+  (#"submarinesubsystem.ads" 51 0 0# ());
+  (#"submarinesubsystem.ads" 50 0 0# ());
+  (#"submarinesubsystem.ads" 55 0 0# ());
+  (#"submarinesubsystem.ads" 59 0 0# ());
+  (#"submarinesubsystem.ads" 57 0 0# ());
+  (#"submarinesubsystem.ads" 57 0 0# ());
+  (#"submarinesubsystem.ads" 56 0 0# ());
   (#"submarinesubsystem.adb" 1 0 0# ());
   (#"submarinesubsystem.adb" 3 0 0# ());
   (#"submarinesubsystem.adb" 10 0 0# ());
   (#"submarinesubsystem.adb" 17 0 0# ());
   (#"submarinesubsystem.adb" 25 0 0# ());
   (#"submarinesubsystem.adb" 33 0 0# ());
-  ( "GP_Sloc:submarinesubsystem.adb:46:1" (#"submarinesubsystem.adb" 46 0 0# ()) ) )
+  (#"submarinesubsystem.adb" 42 0 0# ());
+  ( "GP_Sloc:submarinesubsystem.adb:53:1" (#"submarinesubsystem.adb" 53 0 0# ()) ) )
 end
 
-(* Module for checking contracts and absence of run-time errors in subprogram "startsubmarine" defined at submarinesubsystem.ads:24, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
+(* Module for checking contracts and absence of run-time errors in subprogram "startsubmarine" defined at submarinesubsystem.ads:27, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
 module Submarinesubsystem__startsubmarine__subprogram_def
  use import "_gnatprove_standard".Main
  use import "int".Int
@@ -2941,6 +3091,7 @@ module Submarinesubsystem__startsubmarine__subprogram_def
  use        Submarinesubsystem__submarine___axiom
  use        Submarinesubsystem__nuclearsubmarine
  use        Submarinesubsystem__operational___axiom
+ use        Submarinesubsystem__dosomething___axiom
  use        Submarinesubsystem__airdoorone___axiom
  use        Submarinesubsystem__airdoortwo___axiom
  use        Submarinesubsystem__dooronelock___axiom
@@ -2948,37 +3099,37 @@ module Submarinesubsystem__startsubmarine__subprogram_def
  use        Submarinesubsystem__submarine___axiom
  use        Submarinesubsystem__nuclearsubmarine___axiom
 
- let def #"submarinesubsystem.ads" 24 0 0#"W:diverges:N" "GP_Subp:submarinesubsystem.ads:24" 
+ let def #"submarinesubsystem.ads" 27 0 0#"W:diverges:N" "GP_Subp:submarinesubsystem.ads:27" 
    (__void_param : unit)
-  requires { #"submarinesubsystem.ads" 24 0 0# true }
-  ensures { #"submarinesubsystem.ads" 24 0 0# (#"submarinesubsystem.ads" 29 0 0# ( "model_vc_post" "keep_on_simp" "GP_Sloc:submarinesubsystem.ads:29:14" "GP_Reason:VC_POSTCONDITION" "GP_Id:0" "comment:     Post => NuclearSubmarine.GoodToGo = On;
-             ^ submarinesubsystem.ads:29:14:VC_POSTCONDITION" "GP_Shape:pragargs__cmp" ( "GP_Pretty_Ada:3079" "GP_Sloc:submarinesubsystem.ads:29:14" ((Submarinesubsystem__operational__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) ) )) }
+  requires { #"submarinesubsystem.ads" 27 0 0# true }
+  ensures { #"submarinesubsystem.ads" 27 0 0# (#"submarinesubsystem.ads" 32 0 0# ( "model_vc_post" "keep_on_simp" "GP_Sloc:submarinesubsystem.ads:32:14" "GP_Reason:VC_POSTCONDITION" "GP_Id:0" "comment:     Post => NuclearSubmarine.GoodToGo = On;
+             ^ submarinesubsystem.ads:32:14:VC_POSTCONDITION" "GP_Shape:pragargs__cmp" ( "GP_Pretty_Ada:3177" "GP_Sloc:submarinesubsystem.ads:32:14" ((Submarinesubsystem__operational__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) ) )) }
    =
-  ( () (* Assume dynamic invariants of inputs of the subprogram submarinesubsystem.ads:24 *)
+  ( () (* Assume dynamic invariants of inputs of the subprogram submarinesubsystem.ads:27 *)
   ;
    assume {  (Submarinesubsystem__submarine___axiom.dynamic_invariant { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } True False True True) };
    assume {  true };
-  () (* Declarations introduced by the compiler at the beginning of the subprogram submarinesubsystem.ads:24 *)
+  () (* Declarations introduced by the compiler at the beginning of the subprogram submarinesubsystem.ads:27 *)
   ;
-  () (* Check for RTE in the Pre of the subprogram submarinesubsystem.ads:24 *)
+  () (* Check for RTE in the Pre of the subprogram submarinesubsystem.ads:27 *)
   ;
    abstract ensures {true}(let _ = ( ((Submarinesubsystem__operational__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 1) && ( ((Submarinesubsystem__airdoorone__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) && ( ((Submarinesubsystem__dooronelock__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) && ( ((Submarinesubsystem__airdoortwo__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) && ((Submarinesubsystem__doortwolock__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) ) ) ) ) in (
    ()))
    end ;
-  () (* Assume Pre of the subprogram submarinesubsystem.ads:24 *)
+  () (* Assume Pre of the subprogram submarinesubsystem.ads:27 *)
   ;
    assume {  ( ((Submarinesubsystem__operational__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 1) /\ ( ((Submarinesubsystem__airdoorone__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) /\ ( ((Submarinesubsystem__dooronelock__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) /\ ( ((Submarinesubsystem__airdoortwo__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) /\ ((Submarinesubsystem__doortwolock__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) ) ) ) ) };
    try
    ( ( "GP_Sloc:submarinesubsystem.adb:35:11" (#"submarinesubsystem.adb" 35 0 0# ()) );
    ( "GP_Sloc:submarinesubsystem.adb:35:7" (#"submarinesubsystem.adb" 35 0 0# (if (( ( ( ( ((Submarinesubsystem__operational__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 1) && ((Submarinesubsystem__airdoorone__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) ) && ((Submarinesubsystem__dooronelock__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) ) && ((Submarinesubsystem__airdoortwo__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) ) && ((Submarinesubsystem__doortwolock__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) )) then (
     ( ( "GP_Sloc:submarinesubsystem.adb:38:10" (#"submarinesubsystem.adb" 38 0 0# ()) );
-    ( "GP_Sloc:submarinesubsystem.adb:38:36" (#"submarinesubsystem.adb" 38 0 0# (let temp___202 = (let temp___201 = { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } in (
-     ( #"submarinesubsystem.adb" 38 0 0# abstract ensures {true}(let _ = (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo((Submarinesubsystem__submarine.__split_fields(temp___201)))) in (
+    ( "GP_Sloc:submarinesubsystem.adb:38:36" (#"submarinesubsystem.adb" 38 0 0# (let temp___210 = (let temp___209 = { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } in (
+     ( #"submarinesubsystem.adb" 38 0 0# abstract ensures {true}(let _ = (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo((Submarinesubsystem__submarine.__split_fields(temp___209)))) in (
       ()))
       end ;
-     { ( temp___201 ) with Submarinesubsystem__submarine.__split_fields = { ( (Submarinesubsystem__submarine.__split_fields(temp___201)) ) with Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo = (Submarinesubsystem__operational__rep.of_rep(0)) } } )))
+     { ( temp___209 ) with Submarinesubsystem__submarine.__split_fields = { ( (Submarinesubsystem__submarine.__split_fields(temp___209)) ) with Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo = (Submarinesubsystem__operational__rep.of_rep(0)) } } )))
      in (
-     #"submarinesubsystem.adb" 38 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(temp___202)) )))
+     #"submarinesubsystem.adb" 38 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(temp___210)) )))
     ) ) )) else (
     ()))) );
     raise Return__exc )
@@ -2990,7 +3141,69 @@ module Submarinesubsystem__startsubmarine__subprogram_def
    end  )
 end
 
-(* Module for checking contracts and absence of run-time errors in subprogram "d1close" defined at submarinesubsystem.ads:31, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
+(* Module for checking contracts and absence of run-time errors in subprogram "submarineaction" defined at submarinesubsystem.ads:34, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
+module Submarinesubsystem__submarineaction__subprogram_def
+ use import "_gnatprove_standard".Main
+ use import "int".Int
+ use        Submarinesubsystem__operational
+ use        Submarinesubsystem__operational__rep
+ use        Submarinesubsystem__dosomething
+ use        Submarinesubsystem__dosomething__rep
+ use        Submarinesubsystem__submarine
+ use        Submarinesubsystem__submarine___axiom
+ use        Submarinesubsystem__nuclearsubmarine
+ use        Submarinesubsystem__operational___axiom
+ use        Submarinesubsystem__dosomething___axiom
+ use        Submarinesubsystem__airdoorone___axiom
+ use        Submarinesubsystem__airdoortwo___axiom
+ use        Submarinesubsystem__dooronelock___axiom
+ use        Submarinesubsystem__doortwolock___axiom
+ use        Submarinesubsystem__submarine___axiom
+ use        Submarinesubsystem__nuclearsubmarine___axiom
+
+ let def #"submarinesubsystem.ads" 34 0 0#"W:diverges:N" "GP_Subp:submarinesubsystem.ads:34" 
+   (__void_param : unit)
+  requires { #"submarinesubsystem.ads" 34 0 0# true }
+  ensures { #"submarinesubsystem.ads" 34 0 0# (#"submarinesubsystem.ads" 37 0 0# ( "model_vc_post" "keep_on_simp" "GP_Reason:VC_POSTCONDITION" "GP_Shape:pragargs__cmp" "GP_Sloc:submarinesubsystem.ads:37:14" "GP_Id:1" "comment:     Post => NuclearSubmarine.OpTest = Fire;
+             ^ submarinesubsystem.ads:37:14:VC_POSTCONDITION" ( "GP_Pretty_Ada:3253" "GP_Sloc:submarinesubsystem.ads:37:14" ((Submarinesubsystem__dosomething__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__optest (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) ) )) }
+   =
+  ( () (* Assume dynamic invariants of inputs of the subprogram submarinesubsystem.ads:34 *)
+  ;
+   assume {  (Submarinesubsystem__submarine___axiom.dynamic_invariant { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } True False True True) };
+   assume {  true };
+  () (* Declarations introduced by the compiler at the beginning of the subprogram submarinesubsystem.ads:34 *)
+  ;
+  () (* Check for RTE in the Pre of the subprogram submarinesubsystem.ads:34 *)
+  ;
+   abstract ensures {true}(let _ = ((Submarinesubsystem__operational__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) in (
+   ()))
+   end ;
+  () (* Assume Pre of the subprogram submarinesubsystem.ads:34 *)
+  ;
+   assume {  ((Submarinesubsystem__operational__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) };
+   try
+   ( ( "GP_Sloc:submarinesubsystem.adb:44:11" (#"submarinesubsystem.adb" 44 0 0# ()) );
+   ( "GP_Sloc:submarinesubsystem.adb:44:7" (#"submarinesubsystem.adb" 44 0 0# (if (((Submarinesubsystem__operational__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__goodtogo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0)) then (
+    ( ( "GP_Sloc:submarinesubsystem.adb:45:10" (#"submarinesubsystem.adb" 45 0 0# ()) );
+    ( "GP_Sloc:submarinesubsystem.adb:45:34" (#"submarinesubsystem.adb" 45 0 0# (let temp___212 = (let temp___211 = { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } in (
+     ( #"submarinesubsystem.adb" 45 0 0# abstract ensures {true}(let _ = (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__optest((Submarinesubsystem__submarine.__split_fields(temp___211)))) in (
+      ()))
+      end ;
+     { ( temp___211 ) with Submarinesubsystem__submarine.__split_fields = { ( (Submarinesubsystem__submarine.__split_fields(temp___211)) ) with Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__optest = (Submarinesubsystem__dosomething__rep.of_rep(0)) } } )))
+     in (
+     #"submarinesubsystem.adb" 45 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(temp___212)) )))
+    ) ) )) else (
+    ()))) );
+    raise Return__exc )
+  with
+   Return__exc -> ()
+  end;
+   abstract ensures {true}(let _ = ((Submarinesubsystem__dosomething__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__optest((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) in (
+   ()))
+   end  )
+end
+
+(* Module for checking contracts and absence of run-time errors in subprogram "d1close" defined at submarinesubsystem.ads:39, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
 module Submarinesubsystem__d1close__subprogram_def
  use import "_gnatprove_standard".Main
  use import "int".Int
@@ -3000,6 +3213,7 @@ module Submarinesubsystem__d1close__subprogram_def
  use        Submarinesubsystem__submarine___axiom
  use        Submarinesubsystem__nuclearsubmarine
  use        Submarinesubsystem__operational___axiom
+ use        Submarinesubsystem__dosomething___axiom
  use        Submarinesubsystem__airdoorone___axiom
  use        Submarinesubsystem__airdoortwo___axiom
  use        Submarinesubsystem__dooronelock___axiom
@@ -3007,37 +3221,37 @@ module Submarinesubsystem__d1close__subprogram_def
  use        Submarinesubsystem__submarine___axiom
  use        Submarinesubsystem__nuclearsubmarine___axiom
 
- let def #"submarinesubsystem.ads" 31 0 0#"W:diverges:N" "GP_Subp:submarinesubsystem.ads:31" 
+ let def #"submarinesubsystem.ads" 39 0 0#"W:diverges:N" "GP_Subp:submarinesubsystem.ads:39" 
    (__void_param : unit)
-  requires { #"submarinesubsystem.ads" 31 0 0# true }
-  ensures { #"submarinesubsystem.ads" 31 0 0# (#"submarinesubsystem.ads" 34 0 0# ( "model_vc_post" "keep_on_simp" "GP_Reason:VC_POSTCONDITION" "GP_Shape:pragargs__cmp" "GP_Sloc:submarinesubsystem.ads:34:14" "GP_Id:1" "comment:     Post => NuclearSubmarine.ClosingOne = Closed;
-             ^ submarinesubsystem.ads:34:14:VC_POSTCONDITION" ( "GP_Pretty_Ada:3155" "GP_Sloc:submarinesubsystem.ads:34:14" ((Submarinesubsystem__airdoorone__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) ) )) }
+  requires { #"submarinesubsystem.ads" 39 0 0# true }
+  ensures { #"submarinesubsystem.ads" 39 0 0# (#"submarinesubsystem.ads" 42 0 0# ( "model_vc_post" "keep_on_simp" "GP_Reason:VC_POSTCONDITION" "GP_Shape:pragargs__cmp" "GP_Sloc:submarinesubsystem.ads:42:14" "GP_Id:2" "comment:     Post => NuclearSubmarine.ClosingOne = Closed;
+             ^ submarinesubsystem.ads:42:14:VC_POSTCONDITION" ( "GP_Pretty_Ada:3301" "GP_Sloc:submarinesubsystem.ads:42:14" ((Submarinesubsystem__airdoorone__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) ) )) }
    =
-  ( () (* Assume dynamic invariants of inputs of the subprogram submarinesubsystem.ads:31 *)
+  ( () (* Assume dynamic invariants of inputs of the subprogram submarinesubsystem.ads:39 *)
   ;
    assume {  (Submarinesubsystem__submarine___axiom.dynamic_invariant { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } True False True True) };
    assume {  true };
-  () (* Declarations introduced by the compiler at the beginning of the subprogram submarinesubsystem.ads:31 *)
+  () (* Declarations introduced by the compiler at the beginning of the subprogram submarinesubsystem.ads:39 *)
   ;
-  () (* Check for RTE in the Pre of the subprogram submarinesubsystem.ads:31 *)
+  () (* Check for RTE in the Pre of the subprogram submarinesubsystem.ads:39 *)
   ;
    abstract ensures {true}(let _ = ((Submarinesubsystem__airdoorone__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 1) in (
    ()))
    end ;
-  () (* Assume Pre of the subprogram submarinesubsystem.ads:31 *)
+  () (* Assume Pre of the subprogram submarinesubsystem.ads:39 *)
   ;
    assume {  ((Submarinesubsystem__airdoorone__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 1) };
    try
    ( ( "GP_Sloc:submarinesubsystem.adb:5:11" (#"submarinesubsystem.adb" 5 0 0# ()) );
    ( "GP_Sloc:submarinesubsystem.adb:5:7" (#"submarinesubsystem.adb" 5 0 0# (if (((Submarinesubsystem__airdoorone__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 1)) then (
     ( ( "GP_Sloc:submarinesubsystem.adb:6:10" (#"submarinesubsystem.adb" 6 0 0# ()) );
-    ( "GP_Sloc:submarinesubsystem.adb:6:38" (#"submarinesubsystem.adb" 6 0 0# (let temp___204 = (let temp___203 = { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } in (
-     ( #"submarinesubsystem.adb" 6 0 0# abstract ensures {true}(let _ = (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone((Submarinesubsystem__submarine.__split_fields(temp___203)))) in (
+    ( "GP_Sloc:submarinesubsystem.adb:6:38" (#"submarinesubsystem.adb" 6 0 0# (let temp___214 = (let temp___213 = { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } in (
+     ( #"submarinesubsystem.adb" 6 0 0# abstract ensures {true}(let _ = (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone((Submarinesubsystem__submarine.__split_fields(temp___213)))) in (
       ()))
       end ;
-     { ( temp___203 ) with Submarinesubsystem__submarine.__split_fields = { ( (Submarinesubsystem__submarine.__split_fields(temp___203)) ) with Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone = (Submarinesubsystem__airdoorone__rep.of_rep(0)) } } )))
+     { ( temp___213 ) with Submarinesubsystem__submarine.__split_fields = { ( (Submarinesubsystem__submarine.__split_fields(temp___213)) ) with Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone = (Submarinesubsystem__airdoorone__rep.of_rep(0)) } } )))
      in (
-     #"submarinesubsystem.adb" 6 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(temp___204)) )))
+     #"submarinesubsystem.adb" 6 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(temp___214)) )))
     ) ) )) else (
     ()))) );
     raise Return__exc )
@@ -3049,7 +3263,7 @@ module Submarinesubsystem__d1close__subprogram_def
    end  )
 end
 
-(* Module for checking contracts and absence of run-time errors in subprogram "d2close" defined at submarinesubsystem.ads:36, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
+(* Module for checking contracts and absence of run-time errors in subprogram "d2close" defined at submarinesubsystem.ads:44, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
 module Submarinesubsystem__d2close__subprogram_def
  use import "_gnatprove_standard".Main
  use import "int".Int
@@ -3059,6 +3273,7 @@ module Submarinesubsystem__d2close__subprogram_def
  use        Submarinesubsystem__submarine___axiom
  use        Submarinesubsystem__nuclearsubmarine
  use        Submarinesubsystem__operational___axiom
+ use        Submarinesubsystem__dosomething___axiom
  use        Submarinesubsystem__airdoorone___axiom
  use        Submarinesubsystem__airdoortwo___axiom
  use        Submarinesubsystem__dooronelock___axiom
@@ -3066,37 +3281,37 @@ module Submarinesubsystem__d2close__subprogram_def
  use        Submarinesubsystem__submarine___axiom
  use        Submarinesubsystem__nuclearsubmarine___axiom
 
- let def #"submarinesubsystem.ads" 36 0 0#"W:diverges:N" "GP_Subp:submarinesubsystem.ads:36" 
+ let def #"submarinesubsystem.ads" 44 0 0#"W:diverges:N" "GP_Subp:submarinesubsystem.ads:44" 
    (__void_param : unit)
-  requires { #"submarinesubsystem.ads" 36 0 0# true }
-  ensures { #"submarinesubsystem.ads" 36 0 0# (#"submarinesubsystem.ads" 39 0 0# ( "model_vc_post" "keep_on_simp" "GP_Reason:VC_POSTCONDITION" "GP_Shape:pragargs__cmp" "GP_Sloc:submarinesubsystem.ads:39:14" "GP_Id:2" "comment:     Post => NuclearSubmarine.ClosingTwo = Closed;
-             ^ submarinesubsystem.ads:39:14:VC_POSTCONDITION" ( "GP_Pretty_Ada:3203" "GP_Sloc:submarinesubsystem.ads:39:14" ((Submarinesubsystem__airdoortwo__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) ) )) }
+  requires { #"submarinesubsystem.ads" 44 0 0# true }
+  ensures { #"submarinesubsystem.ads" 44 0 0# (#"submarinesubsystem.ads" 47 0 0# ( "model_vc_post" "keep_on_simp" "GP_Reason:VC_POSTCONDITION" "GP_Shape:pragargs__cmp" "GP_Sloc:submarinesubsystem.ads:47:14" "GP_Id:3" "comment:     Post => NuclearSubmarine.ClosingTwo = Closed;
+             ^ submarinesubsystem.ads:47:14:VC_POSTCONDITION" ( "GP_Pretty_Ada:3349" "GP_Sloc:submarinesubsystem.ads:47:14" ((Submarinesubsystem__airdoortwo__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) ) )) }
    =
-  ( () (* Assume dynamic invariants of inputs of the subprogram submarinesubsystem.ads:36 *)
+  ( () (* Assume dynamic invariants of inputs of the subprogram submarinesubsystem.ads:44 *)
   ;
    assume {  (Submarinesubsystem__submarine___axiom.dynamic_invariant { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } True False True True) };
    assume {  true };
-  () (* Declarations introduced by the compiler at the beginning of the subprogram submarinesubsystem.ads:36 *)
+  () (* Declarations introduced by the compiler at the beginning of the subprogram submarinesubsystem.ads:44 *)
   ;
-  () (* Check for RTE in the Pre of the subprogram submarinesubsystem.ads:36 *)
+  () (* Check for RTE in the Pre of the subprogram submarinesubsystem.ads:44 *)
   ;
    abstract ensures {true}(let _ = ((Submarinesubsystem__airdoortwo__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 1) in (
    ()))
    end ;
-  () (* Assume Pre of the subprogram submarinesubsystem.ads:36 *)
+  () (* Assume Pre of the subprogram submarinesubsystem.ads:44 *)
   ;
    assume {  ((Submarinesubsystem__airdoortwo__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 1) };
    try
    ( ( "GP_Sloc:submarinesubsystem.adb:12:11" (#"submarinesubsystem.adb" 12 0 0# ()) );
    ( "GP_Sloc:submarinesubsystem.adb:12:7" (#"submarinesubsystem.adb" 12 0 0# (if (((Submarinesubsystem__airdoortwo__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 1)) then (
     ( ( "GP_Sloc:submarinesubsystem.adb:13:10" (#"submarinesubsystem.adb" 13 0 0# ()) );
-    ( "GP_Sloc:submarinesubsystem.adb:13:38" (#"submarinesubsystem.adb" 13 0 0# (let temp___206 = (let temp___205 = { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } in (
-     ( #"submarinesubsystem.adb" 13 0 0# abstract ensures {true}(let _ = (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo((Submarinesubsystem__submarine.__split_fields(temp___205)))) in (
+    ( "GP_Sloc:submarinesubsystem.adb:13:38" (#"submarinesubsystem.adb" 13 0 0# (let temp___216 = (let temp___215 = { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } in (
+     ( #"submarinesubsystem.adb" 13 0 0# abstract ensures {true}(let _ = (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo((Submarinesubsystem__submarine.__split_fields(temp___215)))) in (
       ()))
       end ;
-     { ( temp___205 ) with Submarinesubsystem__submarine.__split_fields = { ( (Submarinesubsystem__submarine.__split_fields(temp___205)) ) with Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo = (Submarinesubsystem__airdoortwo__rep.of_rep(0)) } } )))
+     { ( temp___215 ) with Submarinesubsystem__submarine.__split_fields = { ( (Submarinesubsystem__submarine.__split_fields(temp___215)) ) with Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo = (Submarinesubsystem__airdoortwo__rep.of_rep(0)) } } )))
      in (
-     #"submarinesubsystem.adb" 13 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(temp___206)) )))
+     #"submarinesubsystem.adb" 13 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(temp___216)) )))
     ) ) )) else (
     ()))) );
     raise Return__exc )
@@ -3108,7 +3323,7 @@ module Submarinesubsystem__d2close__subprogram_def
    end  )
 end
 
-(* Module for checking contracts and absence of run-time errors in subprogram "d1lock" defined at submarinesubsystem.ads:41, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
+(* Module for checking contracts and absence of run-time errors in subprogram "d1lock" defined at submarinesubsystem.ads:49, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
 module Submarinesubsystem__d1lock__subprogram_def
  use import "_gnatprove_standard".Main
  use import "int".Int
@@ -3120,6 +3335,7 @@ module Submarinesubsystem__d1lock__subprogram_def
  use        Submarinesubsystem__submarine___axiom
  use        Submarinesubsystem__nuclearsubmarine
  use        Submarinesubsystem__operational___axiom
+ use        Submarinesubsystem__dosomething___axiom
  use        Submarinesubsystem__airdoorone___axiom
  use        Submarinesubsystem__airdoortwo___axiom
  use        Submarinesubsystem__dooronelock___axiom
@@ -3127,37 +3343,37 @@ module Submarinesubsystem__d1lock__subprogram_def
  use        Submarinesubsystem__submarine___axiom
  use        Submarinesubsystem__nuclearsubmarine___axiom
 
- let def #"submarinesubsystem.ads" 41 0 0#"W:diverges:N" "GP_Subp:submarinesubsystem.ads:41" 
+ let def #"submarinesubsystem.ads" 49 0 0#"W:diverges:N" "GP_Subp:submarinesubsystem.ads:49" 
    (__void_param : unit)
-  requires { #"submarinesubsystem.ads" 41 0 0# true }
-  ensures { #"submarinesubsystem.ads" 41 0 0# (#"submarinesubsystem.ads" 45 0 0# ( "model_vc_post" "keep_on_simp" "GP_Reason:VC_POSTCONDITION" "GP_Shape:pragargs__cmp" "GP_Sloc:submarinesubsystem.ads:45:14" "GP_Id:3" "comment:     Post => NuclearSubmarine.LockingOne = Locked;
-             ^ submarinesubsystem.ads:45:14:VC_POSTCONDITION" ( "GP_Pretty_Ada:3273" "GP_Sloc:submarinesubsystem.ads:45:14" ((Submarinesubsystem__dooronelock__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) ) )) }
+  requires { #"submarinesubsystem.ads" 49 0 0# true }
+  ensures { #"submarinesubsystem.ads" 49 0 0# (#"submarinesubsystem.ads" 53 0 0# ( "model_vc_post" "keep_on_simp" "GP_Reason:VC_POSTCONDITION" "GP_Shape:pragargs__cmp" "GP_Sloc:submarinesubsystem.ads:53:14" "GP_Id:4" "comment:     Post => NuclearSubmarine.LockingOne = Locked;
+             ^ submarinesubsystem.ads:53:14:VC_POSTCONDITION" ( "GP_Pretty_Ada:3419" "GP_Sloc:submarinesubsystem.ads:53:14" ((Submarinesubsystem__dooronelock__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) ) )) }
    =
-  ( () (* Assume dynamic invariants of inputs of the subprogram submarinesubsystem.ads:41 *)
+  ( () (* Assume dynamic invariants of inputs of the subprogram submarinesubsystem.ads:49 *)
   ;
    assume {  (Submarinesubsystem__submarine___axiom.dynamic_invariant { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } True False True True) };
    assume {  true };
-  () (* Declarations introduced by the compiler at the beginning of the subprogram submarinesubsystem.ads:41 *)
+  () (* Declarations introduced by the compiler at the beginning of the subprogram submarinesubsystem.ads:49 *)
   ;
-  () (* Check for RTE in the Pre of the subprogram submarinesubsystem.ads:41 *)
+  () (* Check for RTE in the Pre of the subprogram submarinesubsystem.ads:49 *)
   ;
    abstract ensures {true}(let _ = ( ((Submarinesubsystem__airdoorone__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) && ((Submarinesubsystem__dooronelock__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 1) ) in (
    ()))
    end ;
-  () (* Assume Pre of the subprogram submarinesubsystem.ads:41 *)
+  () (* Assume Pre of the subprogram submarinesubsystem.ads:49 *)
   ;
    assume {  ( ((Submarinesubsystem__airdoorone__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) /\ ((Submarinesubsystem__dooronelock__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 1) ) };
    try
    ( ( "GP_Sloc:submarinesubsystem.adb:19:11" (#"submarinesubsystem.adb" 19 0 0# ()) );
    ( "GP_Sloc:submarinesubsystem.adb:19:7" (#"submarinesubsystem.adb" 19 0 0# (if (( ((Submarinesubsystem__airdoorone__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingone((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) && ((Submarinesubsystem__dooronelock__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 1) )) then (
     ( ( "GP_Sloc:submarinesubsystem.adb:21:10" (#"submarinesubsystem.adb" 21 0 0# ()) );
-    ( "GP_Sloc:submarinesubsystem.adb:21:38" (#"submarinesubsystem.adb" 21 0 0# (let temp___208 = (let temp___207 = { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } in (
-     ( #"submarinesubsystem.adb" 21 0 0# abstract ensures {true}(let _ = (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone((Submarinesubsystem__submarine.__split_fields(temp___207)))) in (
+    ( "GP_Sloc:submarinesubsystem.adb:21:38" (#"submarinesubsystem.adb" 21 0 0# (let temp___218 = (let temp___217 = { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } in (
+     ( #"submarinesubsystem.adb" 21 0 0# abstract ensures {true}(let _ = (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone((Submarinesubsystem__submarine.__split_fields(temp___217)))) in (
       ()))
       end ;
-     { ( temp___207 ) with Submarinesubsystem__submarine.__split_fields = { ( (Submarinesubsystem__submarine.__split_fields(temp___207)) ) with Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone = (Submarinesubsystem__dooronelock__rep.of_rep(0)) } } )))
+     { ( temp___217 ) with Submarinesubsystem__submarine.__split_fields = { ( (Submarinesubsystem__submarine.__split_fields(temp___217)) ) with Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingone = (Submarinesubsystem__dooronelock__rep.of_rep(0)) } } )))
      in (
-     #"submarinesubsystem.adb" 21 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(temp___208)) )))
+     #"submarinesubsystem.adb" 21 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(temp___218)) )))
     ) ) )) else (
     ()))) );
     raise Return__exc )
@@ -3169,7 +3385,7 @@ module Submarinesubsystem__d1lock__subprogram_def
    end  )
 end
 
-(* Module for checking contracts and absence of run-time errors in subprogram "d2lock" defined at submarinesubsystem.ads:47, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
+(* Module for checking contracts and absence of run-time errors in subprogram "d2lock" defined at submarinesubsystem.ads:55, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
 module Submarinesubsystem__d2lock__subprogram_def
  use import "_gnatprove_standard".Main
  use import "int".Int
@@ -3181,6 +3397,7 @@ module Submarinesubsystem__d2lock__subprogram_def
  use        Submarinesubsystem__submarine___axiom
  use        Submarinesubsystem__nuclearsubmarine
  use        Submarinesubsystem__operational___axiom
+ use        Submarinesubsystem__dosomething___axiom
  use        Submarinesubsystem__airdoorone___axiom
  use        Submarinesubsystem__airdoortwo___axiom
  use        Submarinesubsystem__dooronelock___axiom
@@ -3188,37 +3405,37 @@ module Submarinesubsystem__d2lock__subprogram_def
  use        Submarinesubsystem__submarine___axiom
  use        Submarinesubsystem__nuclearsubmarine___axiom
 
- let def #"submarinesubsystem.ads" 47 0 0#"W:diverges:N" "GP_Subp:submarinesubsystem.ads:47" 
+ let def #"submarinesubsystem.ads" 55 0 0#"W:diverges:N" "GP_Subp:submarinesubsystem.ads:55" 
    (__void_param : unit)
-  requires { #"submarinesubsystem.ads" 47 0 0# true }
-  ensures { #"submarinesubsystem.ads" 47 0 0# (#"submarinesubsystem.ads" 51 0 0# ( "model_vc_post" "keep_on_simp" "GP_Reason:VC_POSTCONDITION" "GP_Shape:pragargs__cmp" "GP_Sloc:submarinesubsystem.ads:51:14" "GP_Id:4" "comment:     Post => NuclearSubmarine.LockingTwo = Locked;
-             ^ submarinesubsystem.ads:51:14:VC_POSTCONDITION" ( "GP_Pretty_Ada:3350" "GP_Sloc:submarinesubsystem.ads:51:14" ((Submarinesubsystem__doortwolock__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) ) )) }
+  requires { #"submarinesubsystem.ads" 55 0 0# true }
+  ensures { #"submarinesubsystem.ads" 55 0 0# (#"submarinesubsystem.ads" 59 0 0# ( "model_vc_post" "keep_on_simp" "GP_Reason:VC_POSTCONDITION" "GP_Shape:pragargs__cmp" "GP_Sloc:submarinesubsystem.ads:59:14" "GP_Id:5" "comment:     Post => NuclearSubmarine.LockingTwo = Locked;
+             ^ submarinesubsystem.ads:59:14:VC_POSTCONDITION" ( "GP_Pretty_Ada:3496" "GP_Sloc:submarinesubsystem.ads:59:14" ((Submarinesubsystem__doortwolock__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) ) )) }
    =
-  ( () (* Assume dynamic invariants of inputs of the subprogram submarinesubsystem.ads:47 *)
+  ( () (* Assume dynamic invariants of inputs of the subprogram submarinesubsystem.ads:55 *)
   ;
    assume {  (Submarinesubsystem__submarine___axiom.dynamic_invariant { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } True False True True) };
    assume {  true };
-  () (* Declarations introduced by the compiler at the beginning of the subprogram submarinesubsystem.ads:47 *)
+  () (* Declarations introduced by the compiler at the beginning of the subprogram submarinesubsystem.ads:55 *)
   ;
-  () (* Check for RTE in the Pre of the subprogram submarinesubsystem.ads:47 *)
+  () (* Check for RTE in the Pre of the subprogram submarinesubsystem.ads:55 *)
   ;
    abstract ensures {true}(let _ = ( ((Submarinesubsystem__airdoortwo__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) && ((Submarinesubsystem__doortwolock__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 1) ) in (
    ()))
    end ;
-  () (* Assume Pre of the subprogram submarinesubsystem.ads:47 *)
+  () (* Assume Pre of the subprogram submarinesubsystem.ads:55 *)
   ;
    assume {  ( ((Submarinesubsystem__airdoortwo__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 0) /\ ((Submarinesubsystem__doortwolock__rep.to_rep (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo (Submarinesubsystem__submarine.__split_fields { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content }))) = 1) ) };
    try
    ( ( "GP_Sloc:submarinesubsystem.adb:27:11" (#"submarinesubsystem.adb" 27 0 0# ()) );
    ( "GP_Sloc:submarinesubsystem.adb:27:7" (#"submarinesubsystem.adb" 27 0 0# (if (( ((Submarinesubsystem__airdoortwo__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__closingtwo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 0) && ((Submarinesubsystem__doortwolock__rep.to_rep((Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo((Submarinesubsystem__submarine.__split_fields({ Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content })))))) = 1) )) then (
     ( ( "GP_Sloc:submarinesubsystem.adb:29:10" (#"submarinesubsystem.adb" 29 0 0# ()) );
-    ( "GP_Sloc:submarinesubsystem.adb:29:38" (#"submarinesubsystem.adb" 29 0 0# (let temp___210 = (let temp___209 = { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } in (
-     ( #"submarinesubsystem.adb" 29 0 0# abstract ensures {true}(let _ = (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo((Submarinesubsystem__submarine.__split_fields(temp___209)))) in (
+    ( "GP_Sloc:submarinesubsystem.adb:29:38" (#"submarinesubsystem.adb" 29 0 0# (let temp___220 = (let temp___219 = { Submarinesubsystem__submarine.__split_fields = Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content } in (
+     ( #"submarinesubsystem.adb" 29 0 0# abstract ensures {true}(let _ = (Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo((Submarinesubsystem__submarine.__split_fields(temp___219)))) in (
       ()))
       end ;
-     { ( temp___209 ) with Submarinesubsystem__submarine.__split_fields = { ( (Submarinesubsystem__submarine.__split_fields(temp___209)) ) with Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo = (Submarinesubsystem__doortwolock__rep.of_rep(0)) } } )))
+     { ( temp___219 ) with Submarinesubsystem__submarine.__split_fields = { ( (Submarinesubsystem__submarine.__split_fields(temp___219)) ) with Submarinesubsystem__submarine.rec__submarinesubsystem__submarine__lockingtwo = (Submarinesubsystem__doortwolock__rep.of_rep(0)) } } )))
      in (
-     #"submarinesubsystem.adb" 29 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(temp___210)) )))
+     #"submarinesubsystem.adb" 29 0 0# Submarinesubsystem__nuclearsubmarine.nuclearsubmarine__split_fields.Submarinesubsystem__submarine.__split_fields__content <- ( (Submarinesubsystem__submarine.__split_fields(temp___220)) )))
     ) ) )) else (
     ()))) );
     raise Return__exc )
