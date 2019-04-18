@@ -1,5 +1,9 @@
 package body SubmarineSubSystem with SPARK_Mode is
 
+ -----------------------------------------------------------------------------------------------
+ -----------------------------------DOOR FUNCTIONALITY------------------------------------------
+ -----------------------------------------------------------------------------------------------
+
    procedure D1Close is
    begin
       if (NuclearSubmarine.ClosingOne = Open and then
@@ -64,6 +68,11 @@ package body SubmarineSubSystem with SPARK_Mode is
       end if;
    end D2Unlock;
 
+ -----------------------------------------------------------------------------------------------
+ -----------------------------------END OF DOOR FUNCTIONALITY-----------------------------------
+ -----------------------------------------------------------------------------------------------
+
+
    procedure StartSubmarine is
    begin
       if (NuclearSubmarine.GoodToGo = Off
@@ -104,6 +113,71 @@ package body SubmarineSubSystem with SPARK_Mode is
          NuclearSubmarine.OpTest := CantFire;
       end if;
    end SubmarineAction;
+
+-----------------------------------------------------------------------------------------------
+-----------------------------------DEPTH SENSOR FUNCTIONALITY----------------------------------
+-----------------------------------------------------------------------------------------------
+
+   procedure DepthMeterCheck is
+   begin
+      if (NuclearSubmarine.DLevel >= 0 and NuclearSubmarine.DLevel < 5) then
+        NuclearSubmarine.DStage := Nominal;
+      elsif (NuclearSubmarine.DLevel >= 5 and NuclearSubmarine.DLevel < 7) then
+        NuclearSubmarine.DStage := Warning;
+      else
+        NuclearSubmarine.DStage := Danger;
+      end if;
+   end DepthMeterCheck;
+
+   procedure DiveOrNot is
+   begin
+      if (NuclearSubmarine.GoodToGo = On and then
+          NuclearSubmarine.OpTest = Fire and then
+          NuclearSubmarine.DDive = Surface) then
+         NuclearSubmarine.DDive := Dive;
+      else
+         NuclearSubmarine.DDive := Surface;
+      end if;
+   end DiveOrNot;
+
+   procedure DepthStageNominal is
+   begin
+      if (NuclearSubmarine.GoodToGo = On and then
+          NuclearSubmarine.DDive = Dive and then
+          NuclearSubmarine.DStage /= Danger and then
+          NuclearSubmarine.DStage /= Warning) then
+         NuclearSubmarine.DStage := Nominal;
+      end if;
+   end DepthStageNominal;
+
+   procedure DepthStageWarning is
+   begin
+      if (NuclearSubmarine.GoodToGo = On and then
+          NuclearSubmarine.DDive = Dive and then
+          NuclearSubmarine.DStage /= Danger and then
+          NuclearSubmarine.DStage /= Nominal) then
+         NuclearSubmarine.DStage := Warning;
+      end if;
+   end DepthStageWarning;
+
+   procedure DepthStageDanger is
+   begin
+      if (NuclearSubmarine.GoodToGo = On and then
+          NuclearSubmarine.DDive = Dive and then
+          NuclearSubmarine.DStage /= Nominal and then
+          NuclearSubmarine.DStage /= Warning) then
+        NuclearSubmarine.DStage := Danger;
+      end if;
+   end DepthStageDanger;
+
+
+
+
+
+
+
+
+
 
 
 

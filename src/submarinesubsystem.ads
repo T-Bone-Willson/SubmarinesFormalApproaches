@@ -4,12 +4,16 @@ package SubmarineSubSystem with SPARK_Mode is
 
    type DoSomething is (Fire, CantFire); -- Test for actions can only be done once,
                                          -- Nuclear Submarine is operational.
-
+   --Door Duntionality types
    type AirDoorOne is (Closed, Open); -- Airlock door One closed or open
    type AirDoorTwo is (Closed, Open); -- Airlock door Two Closed or open
-
    type DoorOneLock is (Locked, Unlocked); -- Airlock door One Locked or Unlocked
    type DoorTwoLock is (Locked, Unlocked); -- Airlock door Two Locked or Unlocked
+
+   -- Depth Sensor types
+   type DepthDive is (Dive, Surface);
+   type DepthStage is (Nominal, Warning, Danger);
+   type DepthLevel is new Integer range 0..10;
 
 
    type Submarine is record -- Items needed for Submarine to become operational
@@ -19,11 +23,15 @@ package SubmarineSubSystem with SPARK_Mode is
       ClosingTwo : AirDoorTwo;
       LockingOne : DoorOneLock;
       LockingTwo : DoorTwoLock;
+      DDive : DepthDive;
+      DStage : DepthStage;
+      DLevel : DepthLevel;
    end record;
 
    NuclearSubmarine : Submarine := (GoodToGo => Off, ClosingOne => Open,
                                     ClosingTwo => Closed, LockingOne => Unlocked,
-                                   LockingTwo => Unlocked, OpTest => CantFire);
+                                    LockingTwo => Unlocked, OpTest => CantFire,
+                                   DDive => Surface, DStage => Nominal, DLevel => 0);
 
    -- Try to Start Submarine
    procedure StartSubmarine with
@@ -105,6 +113,54 @@ package SubmarineSubSystem with SPARK_Mode is
  -----------------------------------------------------------------------------------------------
  -----------------------------------END OF DOOR FUNCTIONALITY-----------------------------------
  -----------------------------------------------------------------------------------------------
+
+
+ -----------------------------------------------------------------------------------------------
+ -----------------------------------DEPTH SENSOR FUNCTIONALITY----------------------------------
+ -----------------------------------------------------------------------------------------------
+
+   -- Gauges Depth Meter to see if Submarine is Nominal, Warning or Danger stage
+   procedure DepthMeterCheck with
+     Global => (In_Out => NuclearSubmarine);
+
+   -- Checks if Submarine can Dive
+   procedure DiveOrNot with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.OpTest = Fire and then
+     NuclearSubmarine.DDive = Surface,
+     Post => NuclearSubmarine.DDive = Dive;
+
+   -- Submarine at Nominal Depth Stage
+   procedure DepthStageNominal with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.DDive = Dive and then
+     NuclearSubmarine.DStage /= Danger and then
+     NuclearSubmarine.DStage /= Warning,
+     Post => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.DStage = Nominal;
+
+   -- Submarine at Warning Depth Stage
+   procedure DepthStageWarning with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.DDive = Dive and then
+     NuclearSubmarine.DStage /= Danger and then
+     NuclearSubmarine.DStage /= Nominal,
+     Post => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.DStage = Warning;
+
+   -- Submarine at Danger Depth Stage
+   procedure DepthStageDanger with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.DDive = Dive and then
+     NuclearSubmarine.DStage /= Nominal and then
+     NuclearSubmarine.DStage /= Warning,
+     Post => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.DStage = Danger;
+
 
 
 
