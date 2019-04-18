@@ -1,0 +1,145 @@
+{
+  "spark": [
+    {
+      "name": "SubmarineSubSystem",
+      "sloc": [
+        {
+          "file": "submarinesubsystem.ads",
+          "line": 1
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SubmarineSubSystem.StartSubmarine",
+      "sloc": [
+        {
+          "file": "submarinesubsystem.ads",
+          "line": 11
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+  ],
+  "proof": [
+    {
+      "file": "submarinesubsystem.ads",
+      "line": 14,
+      "col": 14,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SubmarineSubSystem.StartSubmarine",
+        "sloc": [
+          {
+            "file": "submarinesubsystem.ads",
+            "line": 11
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "submarinesubsystem.ads",
+      "check_line": 14,
+      "check_col": 14,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.99999995529652E-02
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SubmarineSubSystem",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "SubmarineSubSystem.StartSubmarine",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 11
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SubmarineSubSystem.StartSubmarine",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 11
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SubmarineSubSystem.StartSubmarine",
+          "sloc": [
+            {
+              "file": "submarinesubsystem.ads",
+              "line": 11
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "marking": 1.76500005181879E-04,
+    "globals (basic)": 5.23400027304888E-04,
+    "globals/properties (advanced)": 1.18120003025979E-03,
+    "flow analysis": 1.73589994665235E-03,
+    "codepeer results": 8.89999955688836E-06,
+    "init_why_sections": 2.47199990553781E-04,
+    "translation of standard": 3.34189995191991E-03,
+    "translation of compilation unit": 1.43249996472150E-03,
+    "proof": 6.31657183170319E-01
+  }
+}

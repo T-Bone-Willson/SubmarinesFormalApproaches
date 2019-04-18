@@ -1,0 +1,7 @@
+20190418102100
+-c
+-x
+ada
+-gnatA
+-gnatc
+-gnates=C:\Users\T-Bone-Willson\Desktop\Formal Approaches Assignment\SubmarinesFormalApproaches\obj\gnatprove\6b1ccefa.tmp

@@ -8,7 +8,10 @@ package SubmarineSubSystem with SPARK_Mode is
 
    NuclearSubmarine : Submarine := (GoodToGo => Off);
 
-
+   procedure StartSubmarine with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.GoodToGo = Off,
+     Post => NuclearSubmarine.GoodToGo = On;
 
 
 
