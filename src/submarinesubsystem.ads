@@ -22,7 +22,7 @@ package SubmarineSubSystem with SPARK_Mode is
    end record;
 
    NuclearSubmarine : Submarine := (GoodToGo => Off, ClosingOne => Open,
-                                    ClosingTwo => Open, LockingOne => Unlocked,
+                                    ClosingTwo => Closed, LockingOne => Unlocked,
                                    LockingTwo => Unlocked, OpTest => CantFire);
 
    -- Try to Start Submarine
@@ -41,16 +41,23 @@ package SubmarineSubSystem with SPARK_Mode is
      and then NuclearSubmarine.LockingTwo = Locked,
      Post => NuclearSubmarine.OpTest = Fire;
 
+ -----------------------------------------------------------------------------------------------
+ -----------------------------------DOOR FUNCTIONALITY------------------------------------------
+ -----------------------------------------------------------------------------------------------
+
+   -- Airlock Door One can only open if Airlock Door Two is Closed. And Vide Versa
+   -- These Checks are made in procedures: D1Close, D2Close, D1Open and D2 Open
+
    -- Airlock Door One Close
-   procedure D1Close with -- Might need to add "And" for if it's opened and Unlocked
+   procedure D1Close with
      Global => (In_Out => NuclearSubmarine),
-     Pre => NuclearSubmarine.ClosingOne = Open,
+     Pre => NuclearSubmarine.ClosingOne = Open and then NuclearSubmarine.ClosingTwo = Closed,
      Post => NuclearSubmarine.ClosingOne = Closed;
 
    -- Airlock Door Two Close
    procedure D2Close with
      Global => (In_Out => NuclearSubmarine),
-     Pre => NuclearSubmarine.ClosingTwo = Open,
+     Pre => NuclearSubmarine.ClosingTwo = Open and then NuclearSubmarine.ClosingOne = Closed,
      Post => NuclearSubmarine.ClosingTwo = Closed;
 
    --Airlock Door One Lock
@@ -71,14 +78,16 @@ package SubmarineSubSystem with SPARK_Mode is
    procedure D1Open with
      Global => (In_Out => NuclearSubmarine),
      Pre => NuclearSubmarine.LockingOne = Unlocked and then
-     NuclearSubmarine.ClosingOne = Closed,
+          NuclearSubmarine.ClosingOne = Closed and then
+          NuclearSubmarine.ClosingTwo = Closed,
      Post => NuclearSubmarine.ClosingOne = Open;
 
    -- Airlock Door Two Open
    procedure D2Open with
      Global => (In_Out => NuclearSubmarine),
      Pre => NuclearSubmarine.LockingTwo = Unlocked and then
-     NuclearSubmarine.ClosingTwo = Closed,
+          NuclearSubmarine.ClosingTwo = Closed and then
+          NuclearSubmarine.ClosingOne = Closed,
      Post => NuclearSubmarine.ClosingTwo = Open;
 
    --Airlock Door One Unlock
@@ -91,9 +100,11 @@ package SubmarineSubSystem with SPARK_Mode is
    procedure D2Unlock with
      Global => (In_Out => NuclearSubmarine),
      Pre => NuclearSubmarine.ClosingTwo = Closed and then NuclearSubmarine.LockingTwo = Locked,
-     Post => NuclearSubmarine.ClosingTwo =Closed and then NuclearSubmarine.LockingTwo = Unlocked;
+     Post => NuclearSubmarine.ClosingTwo = Closed and then NuclearSubmarine.LockingTwo = Unlocked;
 
-
+ -----------------------------------------------------------------------------------------------
+ -----------------------------------END OF DOOR FUNCTIONALITY-----------------------------------
+ -----------------------------------------------------------------------------------------------
 
 
 
