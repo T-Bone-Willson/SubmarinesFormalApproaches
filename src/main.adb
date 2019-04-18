@@ -3,6 +3,7 @@ with Ada.Text_IO; use Ada.Text_IO;
 
 procedure Main is
 begin
+   StartSubmarine;
    Put_Line("Nuclear Submarine is: ");
    Put_Line(NuclearSubmarine.GoodToGo'Image);
    Put_Line("Try Starting Submarine");
@@ -67,6 +68,7 @@ begin
    D2Unlock;
    D1Open;
    D2Open;
+   StartSubmarine;
    SubmarineAction;
    Put_Line(NuclearSubmarine.LockingOne'Image);
    Put_Line(NuclearSubmarine.LockingTwo'Image);
