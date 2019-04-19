@@ -1,3 +1,6 @@
+with SubmarineSubSystem; use SubmarineSubSystem;
+with Ada.Text_IO; use Ada.Text_IO;
+
 package body SubmarineSubSystem with SPARK_Mode is
 
  -----------------------------------------------------------------------------------------------
@@ -125,9 +128,24 @@ package body SubmarineSubSystem with SPARK_Mode is
       elsif (NuclearSubmarine.DLevel >= 5 and NuclearSubmarine.DLevel < 7) then
         NuclearSubmarine.DStage := Warning;
       else
-        NuclearSubmarine.DStage := Danger;
+         NuclearSubmarine.DStage := Danger;
+         --Put_Line("Submarine cannot go any lower! Advise going to surface!");
       end if;
    end DepthMeterCheck;
+
+   -- Test to change Depth to Test Depth Sensor Checks
+   procedure ChangeDepth is
+   begin
+      if (NuclearSubmarine.GoodToGo = On and then
+          NuclearSubmarine.OpTest = Fire and then
+          NuclearSubmarine.DDive = Dive and then
+          NuclearSubmarine.DLevel < 8) then
+         NuclearSubmarine.DLevel := NuclearSubmarine.Dlevel + 3;
+      elsif (NuclearSubmarine.DLevel >=9) then
+         NuclearSubmarine.DLevel := NuclearSubmarine.DLevel + 0;
+      end if;
+   end ChangeDepth;
+
 
    procedure DiveOrNot is
    begin
@@ -140,46 +158,15 @@ package body SubmarineSubSystem with SPARK_Mode is
       end if;
    end DiveOrNot;
 
-   procedure DepthStageNominal is
+   procedure Resurface is
    begin
       if (NuclearSubmarine.GoodToGo = On and then
-          NuclearSubmarine.DDive = Dive and then
-          NuclearSubmarine.DStage /= Danger and then
-          NuclearSubmarine.DStage /= Warning) then
-         NuclearSubmarine.DStage := Nominal;
+          NuclearSubmarine.OpTest = Fire and then
+          NuclearSubmarine.DDive = Dive) then
+         NuclearSubmarine.DLevel := 0;
+         NuclearSubmarine.DDive := Surface;
       end if;
-   end DepthStageNominal;
-
-   procedure DepthStageWarning is
-   begin
-      if (NuclearSubmarine.GoodToGo = On and then
-          NuclearSubmarine.DDive = Dive and then
-          NuclearSubmarine.DStage /= Danger and then
-          NuclearSubmarine.DStage /= Nominal) then
-         NuclearSubmarine.DStage := Warning;
-      end if;
-   end DepthStageWarning;
-
-   procedure DepthStageDanger is
-   begin
-      if (NuclearSubmarine.GoodToGo = On and then
-          NuclearSubmarine.DDive = Dive and then
-          NuclearSubmarine.DStage /= Nominal and then
-          NuclearSubmarine.DStage /= Warning) then
-        NuclearSubmarine.DStage := Danger;
-      end if;
-   end DepthStageDanger;
-
-
-
-
-
-
-
-
-
-
-
+   end Resurface;
 
 
 

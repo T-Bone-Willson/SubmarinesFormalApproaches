@@ -81,21 +81,86 @@ begin
    Put_Line("Can we Fire?");
    SubmarineAction;
    Put_Line(NuclearSubmarine.OpTest'Image);
-   Put_Line("TEST!");
-   D1Unlock;
-   StartSubmarine;
-   Put_Line(NuclearSubmarine.GoodToGo'Image);
-   D2Unlock;
-   D1Open;
-   D2Open;
-   StartSubmarine;
-   SubmarineAction;
-   Put_Line(NuclearSubmarine.LockingOne'Image);
-   Put_Line(NuclearSubmarine.LockingTwo'Image);
-   Put_Line(NuclearSubmarine.ClosingOne'Image);
-   Put_Line(NuclearSubmarine.ClosingTwo'Image);
-   Put_Line(NuclearSubmarine.GoodToGo'Image);
-   Put_Line(NuclearSubmarine.OpTest'Image);
+   Put_Line("Ready to Dive, Commence Divining");
+   DiveOrNot;
+   Put_Line(NuclearSubmarine.DDive'Image);
+   Put_Line("State of Dive?");
+   DepthMeterCheck;
+   Put_Line(NuclearSubmarine.DStage'Image);
+   Put_Line("Dive by 3!");
+   ChangeDepth;
+   Put_Line("Depth is now: ");
+   Put_Line(NuclearSubmarine.DLevel'Image);
+   Put("Submarine in Okay Depth Stage? "); -- Displays Submarine depth state while
+   DepthMeterCheck;                        -- This line is printed... Don't know why.
+   Put_Line(NuclearSubmarine.DStage'Image);
+   Put_Line("Dive by 3!");
+   ChangeDepth;
+   Put_Line("Depth is now: ");
+   Put_Line(NuclearSubmarine.DLevel'Image);
+   Put("Submarine in Okay Depth Stage? ");
+   DepthMeterCheck;
+   Put_Line(NuclearSubmarine.DStage'Image);
+   Put_Line("Dive by 3!");
+   ChangeDepth;
+   Put_Line("Depth is now: ");
+   Put_Line(NuclearSubmarine.DLevel'Image);
+   Put("Submarine in Okay Depth Stage? ");
+   DepthMeterCheck;
+   Put_Line(NuclearSubmarine.DStage'Image);
+   Put_Line("Dive by 3!");
+   ChangeDepth;
+   Put_Line("Depth is now: ");
+   Put_Line(NuclearSubmarine.DLevel'Image);
+   Put("Submarine in Okay Depth Stage? ");
+   DepthMeterCheck;
+   Put_Line(NuclearSubmarine.DStage'Image);
+   Put_Line("Cannot Dive any dseeper!");
+   Put_Line("Taking Submarine back to Surface");
+   Resurface;
+   Put_Line("Submarine is: ");
+   Put_Line(NuclearSubmarine.DDive'Image);
+   Put_Line("Submarine Depth level is: ");
+   Put_Line(NuclearSubmarine.DLevel'Image);
+   Put_Line("TEST IF SUBMARINE CAN CHANGE DEPTH WHILE SURFACED");
+   ChangeDepth;
+   ChangeDepth;
+   ChangeDepth;
+   Put_Line(NuclearSubmarine.DLevel'Image);
+   Put_Line("IT CANNOT! TEST OVER");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   --Put_Line("TEST!");
+   --D1Unlock;
+   --StartSubmarine;
+   --Put_Line(NuclearSubmarine.GoodToGo'Image);
+  -- D2Unlock;
+   --D1Open;
+  -- D2Open;
+   --StartSubmarine;
+   --SubmarineAction;
+   --Put_Line--(NuclearSubmarine.LockingOne'Image);
+   --Put_Line(NuclearSubmarine.LockingTwo'Image);
+   --Put_Line--(NuclearSubmarine.ClosingOne'Image);
+   --Put_Line(NuclearSubmarine.ClosingTwo'Image);
+   --Put_Line--(NuclearSubmarine.GoodToGo'Image);
+   --Put_Line(NuclearSubmarine.OpTest'Image);
 
 
 

@@ -123,6 +123,18 @@ package SubmarineSubSystem with SPARK_Mode is
    procedure DepthMeterCheck with
      Global => (In_Out => NuclearSubmarine);
 
+   -- Changes the depth of the Submarine. Cannnot go above 9.
+   procedure ChangeDepth with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.OpTest = Fire and then
+     NuclearSubmarine.DDive = Dive and then
+     NuclearSubmarine.DLevel < 8,
+     Post => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.OpTest = Fire and then
+     NuclearSubmarine.DDive = Dive and then
+     NuclearSubmarine.DLevel /= 0;
+
    -- Checks if Submarine can Dive
    procedure DiveOrNot with
      Global => (In_Out => NuclearSubmarine),
@@ -131,38 +143,13 @@ package SubmarineSubSystem with SPARK_Mode is
      NuclearSubmarine.DDive = Surface,
      Post => NuclearSubmarine.DDive = Dive;
 
-   -- Submarine at Nominal Depth Stage
-   procedure DepthStageNominal with
+   -- Allows submarine to resurface
+   procedure Resurface with
      Global => (In_Out => NuclearSubmarine),
      Pre => NuclearSubmarine.GoodToGo = On and then
-     NuclearSubmarine.DDive = Dive and then
-     NuclearSubmarine.DStage /= Danger and then
-     NuclearSubmarine.DStage /= Warning,
-     Post => NuclearSubmarine.GoodToGo = On and then
-     NuclearSubmarine.DStage = Nominal;
-
-   -- Submarine at Warning Depth Stage
-   procedure DepthStageWarning with
-     Global => (In_Out => NuclearSubmarine),
-     Pre => NuclearSubmarine.GoodToGo = On and then
-     NuclearSubmarine.DDive = Dive and then
-     NuclearSubmarine.DStage /= Danger and then
-     NuclearSubmarine.DStage /= Nominal,
-     Post => NuclearSubmarine.GoodToGo = On and then
-     NuclearSubmarine.DStage = Warning;
-
-   -- Submarine at Danger Depth Stage
-   procedure DepthStageDanger with
-     Global => (In_Out => NuclearSubmarine),
-     Pre => NuclearSubmarine.GoodToGo = On and then
-     NuclearSubmarine.DDive = Dive and then
-     NuclearSubmarine.DStage /= Nominal and then
-     NuclearSubmarine.DStage /= Warning,
-     Post => NuclearSubmarine.GoodToGo = On and then
-     NuclearSubmarine.DStage = Danger;
-
-
-
+     NuclearSubmarine.OpTest = Fire and then
+     NuclearSubmarine.DDive = Dive,
+     Post=> NuclearSubmarine.DDive = Surface;
 
 
 end SubmarineSubSystem;
