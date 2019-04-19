@@ -15,6 +15,11 @@ package SubmarineSubSystem with SPARK_Mode is
    type DepthStage is (Nominal, Warning, Danger);
    type DepthLevel is new Integer range 0..10;
 
+   -- Oxyegen System types
+   type OxygenState is (High, Low);
+   type OxygenWarning is (Oxygen_Fine, Oxygen_Warning);
+   type OxygenTank is new Integer range 0..100;
+
 
    type Submarine is record -- Items needed for Submarine to become operational
       GoodToGo : Operational;
@@ -26,12 +31,17 @@ package SubmarineSubSystem with SPARK_Mode is
       DDive : DepthDive;
       DStage : DepthStage;
       DLevel : DepthLevel;
+      OState : OxygenState;
+      OWarning : OxygenWarning;
+      OTank : OxygenTank;
    end record;
 
    NuclearSubmarine : Submarine := (GoodToGo => Off, ClosingOne => Open,
                                     ClosingTwo => Closed, LockingOne => Unlocked,
                                     LockingTwo => Unlocked, OpTest => CantFire,
-                                   DDive => Surface, DStage => Nominal, DLevel => 0);
+                                    DDive => Surface, DStage => Nominal, DLevel => 0,
+                                    OState => High, OWarning => Oxygen_Fine, OTank => 100);
+
 
    -- Try to Start Submarine
    procedure StartSubmarine with
@@ -131,7 +141,11 @@ package SubmarineSubSystem with SPARK_Mode is
 
    -- Gauges Depth Meter to see if Submarine is Nominal, Warning or Danger stage
    procedure DepthMeterCheck with
-     Global => (In_Out => NuclearSubmarine);
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.OpTest = Fire,
+     Post => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.OpTest = Fire;
 
    -- Changes the depth of the Submarine. Cannnot go above 9.
    procedure ChangeDepth with
@@ -164,6 +178,32 @@ package SubmarineSubSystem with SPARK_Mode is
 -----------------------------------------------------------------------------------------------
 --------------------------- END OF DEPTH SENSOR FUNCTIONALITY----------------------------------
 -----------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------
+----------------------------------- OXYGEN FUNCTIONALITY --------------------------------------
+-----------------------------------------------------------------------------------------------
+
+   procedure OxygenReserveCheck with
+     Global =>  (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.OpTest = Fire and then
+     NuclearSubmarine.OTank <= 0,
+     Post => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.OpTest = Fire and then
+     NuclearSubmarine.OTank <= 0;
+
+   procedure ConsumeOxygen with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.OpTest = Fire and then
+     NuclearSubmarine.DDive = Dive and then
+     NuclearSubmarine.OTank >= 10,
+     Post => NuclearSubmarine.GoodToGo = On and then
+     NuclearSubmarine.OpTest = Fire and then
+     NuclearSubmarine.DDive = Dive and then
+     NuclearSubmarine.OTank >= 0;
+
+
 
 
 end SubmarineSubSystem;

@@ -165,12 +165,58 @@ package body SubmarineSubSystem with SPARK_Mode is
           NuclearSubmarine.DDive = Dive) then
          NuclearSubmarine.DLevel := 0;
          NuclearSubmarine.DDive := Surface;
+         NuclearSubmarine.OTank := 100;
       end if;
    end Resurface;
 
 -----------------------------------------------------------------------------------------------
 --------------------------- END OF DEPTH SENSOR FUNCTIONALITY----------------------------------
 -----------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------
+----------------------------------- OXYGEN FUNCTIONALITY --------------------------------------
+-----------------------------------------------------------------------------------------------
+
+   procedure OxygenReserveCheck is
+   begin
+      if (NuclearSubmarine.OTank = 100 or NuclearSubmarine.OTank > 30) then
+         NuclearSubmarine.OState := High;
+      elsif (NuclearSubmarine.OTank <= 30 and NuclearSubmarine.OTank >=1) then
+         NuclearSubmarine.OState := Low;
+         NuclearSubmarine.OWarning := Oxygen_Warning;
+         --Put_Line(NuclearSubmarine.OWarning'Image);
+      end if;
+   end OxygenReserveCheck;
+
+   procedure ConsumeOxygen is
+   begin
+      if (NuclearSubmarine.GoodToGo = On and then
+          NuclearSubmarine.OpTest = Fire and then
+          NuclearSubmarine.DDive = Dive and then
+          NuclearSubmarine.OTank >= 31) then
+         NuclearSubmarine.OTank := NuclearSubmarine.OTank - 10;
+      elsif (NuclearSubmarine.OTank <= 30 and NuclearSubmarine.OTank >= 10) then
+         NuclearSubmarine.OTank := NuclearSubmarine.OTank - 10;
+         NuclearSubmarine.OWarning := Oxygen_Warning;
+         Put_Line(NuclearSubmarine.OWarning'Image); -- Don't know how to proof this.
+      elsif (NuclearSubmarine.OTank < 10) then
+         -- List of states that will be printed in "main" when
+         -- The Submarine runs out of oxygen.
+         Put_Line(NuclearSubmarine.OWarning'Image); -- Don't know how to proof this.
+         Put_Line("Submarine has to resurface!"); -- Don't know how to proof this.
+         Resurface;
+         Put_Line(NuclearSubmarine.DDive'Image); -- Don't know how to proof this.
+         Put_Line("Submarine has now resurfaced"); -- Don't know how to proof this.
+      end if;
+   end ConsumeOxygen;
+
+
+
+
+
+
+
+
 
 
 

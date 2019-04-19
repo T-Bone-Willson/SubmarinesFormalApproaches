@@ -115,7 +115,7 @@ begin
    Put("Submarine in Okay Depth Stage? ");
    DepthMeterCheck;
    Put_Line(NuclearSubmarine.DStage'Image);
-   Put_Line("Cannot Dive any dseeper!");
+   Put_Line("Cannot Dive any deeper!");
    Put_Line("Taking Submarine back to Surface");
    Resurface;
    Put_Line("Submarine is: ");
@@ -128,6 +128,109 @@ begin
    ChangeDepth;
    Put_Line(NuclearSubmarine.DLevel'Image);
    Put_Line("IT CANNOT! TEST OVER");
+   Put_Line("");
+   Put_Line("");
+   Put_Line("");
+   Put_Line("Dive and use Oxygen Test");
+   Put_Line("Submarine is: ");
+   Put_Line(NuclearSubmarine.DDive'Image);
+   Put_Line("Dive Submarine!");
+   DiveOrNot;
+   Put_Line("Submarine is: ");
+   Put_Line(NuclearSubmarine.DDive'Image);
+   Put_Line("Submarine Oxygen Reserves are: ");
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("State of Oxygen Tank is ");
+   OxygenReserveCheck;
+   Put_Line(NuclearSubmarine.OState'Image);
+   Put_Line("Use Oxygen: ");
+   ConsumeOxygen;
+   Put_Line("Submarine Oxygen Reserves are: ");
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("State of Oxygen Tank is ");
+   OxygenReserveCheck;
+   Put_Line(NuclearSubmarine.OState'Image);
+   Put_Line("Use Oxygen: ");
+   ConsumeOxygen;
+   Put_Line("Submarine Oxygen Reserves are: ");
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("State of Oxygen Tank is ");
+   OxygenReserveCheck;
+   Put_Line(NuclearSubmarine.OState'Image);
+   Put_Line("Use Oxygen: ");
+   ConsumeOxygen;
+   Put_Line("Submarine Oxygen Reserves are: ");
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("State of Oxygen Tank is ");
+   OxygenReserveCheck;
+   Put_Line(NuclearSubmarine.OState'Image);
+   Put_Line("Use Oxygen: ");
+   ConsumeOxygen;
+   Put_Line("Submarine Oxygen Reserves are: ");
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("State of Oxygen Tank is ");
+   OxygenReserveCheck;
+   Put_Line(NuclearSubmarine.OState'Image);
+   Put_Line("Use Oxygen: ");
+   ConsumeOxygen;
+   Put_Line("Submarine Oxygen Reserves are: ");
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("State of Oxygen Tank is ");
+   OxygenReserveCheck;
+   Put_Line(NuclearSubmarine.OState'Image);
+   Put_Line("Use Oxygen: ");
+   ConsumeOxygen;
+   Put_Line("Submarine Oxygen Reserves are: ");
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("State of Oxygen Tank is ");
+   OxygenReserveCheck;
+   Put_Line(NuclearSubmarine.OState'Image);
+   Put_Line("Use Oxygen: ");
+   ConsumeOxygen;
+   Put_Line("Submarine Oxygen Reserves are: ");
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("State of Oxygen Tank is ");
+   OxygenReserveCheck;
+   Put_Line(NuclearSubmarine.OState'Image);
+   Put_Line("Use Oxygen: ");
+   ConsumeOxygen;
+   Put_Line("Submarine Oxygen Reserves are: ");
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("State of Oxygen Tank is ");
+   OxygenReserveCheck;
+   Put_Line(NuclearSubmarine.OState'Image);
+   Put_Line("Use Oxygen: ");
+   ConsumeOxygen;
+   Put_Line("Submarine Oxygen Reserves are: ");
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("State of Oxygen Tank is ");
+   OxygenReserveCheck;
+   Put_Line(NuclearSubmarine.OState'Image);
+   Put_Line("Use Oxygen: ");
+   ConsumeOxygen;
+   Put_Line("Submarine Oxygen Reserves are: ");
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("State of Oxygen Tank is ");
+   OxygenReserveCheck;
+   Put_Line(NuclearSubmarine.OState'Image);
+   Put_Line("Use Oxygen: ");
+   ConsumeOxygen;
+   Put_Line("Is Submarine defently Surfaced? ");
+   Put_Line(NuclearSubmarine.DDive'Image);
+   Put_Line("Check if Oxygen Reserves have been restored by resurficing: ");
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("Can Oxygen be consumed while surfaced? ");
+   ConsumeOxygen;
+   Put_Line(NuclearSubmarine.OTank'Image);
+   Put_Line("No it cannot ");
+   Put_Line("THIS ENDS TESTING FOR OXYGEN SYSTEM!");
+
+
+
+
+
+
+
 
 
 

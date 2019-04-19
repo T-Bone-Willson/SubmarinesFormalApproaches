@@ -1,0 +1,10 @@
+submarinesubsystem.adb:201:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:201:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:203:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:203:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:204:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:204:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:206:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:206:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:207:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:207:10: warning: assuming "Put_Line" has no effect on global items
