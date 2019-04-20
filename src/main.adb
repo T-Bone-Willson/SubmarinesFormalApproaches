@@ -81,6 +81,11 @@ begin
    Put_Line("Can we Fire?");
    SubmarineAction;
    Put_Line(NuclearSubmarine.OpTest'Image);
+   Put_Line("SUBMARINE IS NOW OPERATIONAL TO TEST ALL SYSTEMS!");
+   Put_Line("");
+   Put_Line("");
+   Put_Line("");
+   Put_Line("DIVE AND DEPTH CHECK TEST!");
    Put_Line("Ready to Dive, Commence Divining");
    DiveOrNot;
    Put_Line(NuclearSubmarine.DDive'Image);
@@ -248,6 +253,13 @@ begin
    DiveOrNot;
    Put_Line(NuclearSubmarine.DDive'Image);
    Put_Line("THIS ENDS TESTING FOR REACTOR SUBSYSTEMS");
+   Put_Line("");
+   Put_Line("");
+   Put_Line("");
+   Put_Line("BEGIN TESTING TORPEDOES SYSTEM!");
+   Put_Line("Submariner: Errr... Admiral? We don't have any torpedoes. Or tubes for that matter.");
+   Put_Line("The Admiral looks deeply into the submariner's eyes, only witnessing the sheer shock of a submarine having no torpedo systems");
+   Put_Line("Admiral: ....Bugger!");
    Put_Line("");
    Put_Line("");
    Put_Line("");
