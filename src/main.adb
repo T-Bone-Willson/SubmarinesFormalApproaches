@@ -131,7 +131,7 @@ begin
    Put_Line("");
    Put_Line("");
    Put_Line("");
-   Put_Line("Dive and use Oxygen Test");
+   Put_Line("DIVE AND USE OXYGEN TEST");
    Put_Line("Submarine is: ");
    Put_Line(NuclearSubmarine.DDive'Image);
    Put_Line("Dive Submarine!");
@@ -224,58 +224,34 @@ begin
    Put_Line(NuclearSubmarine.OTank'Image);
    Put_Line("No it cannot ");
    Put_Line("THIS ENDS TESTING FOR OXYGEN SYSTEM!");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   --Put_Line("TEST!");
-   --D1Unlock;
-   --StartSubmarine;
-   --Put_Line(NuclearSubmarine.GoodToGo'Image);
-  -- D2Unlock;
-   --D1Open;
-  -- D2Open;
-   --StartSubmarine;
-   --SubmarineAction;
-   --Put_Line--(NuclearSubmarine.LockingOne'Image);
-   --Put_Line(NuclearSubmarine.LockingTwo'Image);
-   --Put_Line--(NuclearSubmarine.ClosingOne'Image);
-   --Put_Line(NuclearSubmarine.ClosingTwo'Image);
-   --Put_Line--(NuclearSubmarine.GoodToGo'Image);
-   --Put_Line(NuclearSubmarine.OpTest'Image);
-
-
-
-
-
-
-
-
-
-
-
-
-
+   Put_Line("");
+   Put_Line("");
+   Put_Line("");
+   Put_Line("BEGIN TESTING REACTOR OVERHEATING SYSTEMS");
+   Put_Line("Submarin must Dive");
+   DiveOrNot;
+   Put_Line(NuclearSubmarine.DDive'Image);
+   Put_Line("Overheat Reactor: ");
+   ReactorOverheatRoutine;
+   Put_Line("Submarine state is still: ");
+   Put_Line(NuclearSubmarine.RTemp'Image);
+   Put_Line("Can we dive?");
+   DiveOrNot;
+   Put_Line(NuclearSubmarine.DDive'Image);
+   Put_Line("Submarine cannot diver because reactor is still: ");
+   Put_Line(NuclearSubmarine.RTemp'Image);
+   Put_Line("Intiate Cooling of the reactor: ");
+   CoolReactor;
+   Put_Line("Reactor is now: ");
+   Put_Line(NuclearSubmarine.RTemp'Image);
+   Put_Line("Can we dive?");
+   DiveOrNot;
+   Put_Line(NuclearSubmarine.DDive'Image);
+   Put_Line("THIS ENDS TESTING FOR REACTOR SUBSYSTEMS");
+   Put_Line("");
+   Put_Line("");
+   Put_Line("");
+   Put_Line("ALL FEATURES HAVE NOW BEEN TESTED! ENDING PROGRAM!");
+   Put_Line("");
 
 end Main;

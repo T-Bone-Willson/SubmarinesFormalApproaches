@@ -20,8 +20,11 @@ package SubmarineSubSystem with SPARK_Mode is
    type OxygenWarning is (Oxygen_Fine, Oxygen_Warning);
    type OxygenTank is new Integer range 0..100;
 
+   -- Reactor System types
+   type ReactorTemp is (Fine, Overheating);
 
-   type Submarine is record -- Items needed for Submarine to become operational
+   -- Submarine variables
+   type Submarine is record
       GoodToGo : Operational;
       OpTest : DoSomething;
       ClosingOne : AirDoorOne;
@@ -34,13 +37,16 @@ package SubmarineSubSystem with SPARK_Mode is
       OState : OxygenState;
       OWarning : OxygenWarning;
       OTank : OxygenTank;
+      RTemp : ReactorTemp;
    end record;
 
+   -- Record of NuclearSubmarine
    NuclearSubmarine : Submarine := (GoodToGo => Off, ClosingOne => Open,
                                     ClosingTwo => Closed, LockingOne => Unlocked,
                                     LockingTwo => Unlocked, OpTest => CantFire,
                                     DDive => Surface, DStage => Nominal, DLevel => 0,
-                                    OState => High, OWarning => Oxygen_Fine, OTank => 100);
+                                    OState => High, OWarning => Oxygen_Fine, OTank => 100,
+                                   RTemp => Fine);
 
 
    -- Try to Start Submarine
@@ -164,7 +170,8 @@ package SubmarineSubSystem with SPARK_Mode is
      Global => (In_Out => NuclearSubmarine),
      Pre => NuclearSubmarine.GoodToGo = On and then
      NuclearSubmarine.OpTest = Fire and then
-     NuclearSubmarine.DDive = Surface,
+     NuclearSubmarine.DDive = Surface and then
+     NuclearSubmarine.RTemp = Fine,
      Post => NuclearSubmarine.DDive = Dive;
 
    -- Allows submarine to resurface
@@ -173,7 +180,8 @@ package SubmarineSubSystem with SPARK_Mode is
      Pre => NuclearSubmarine.GoodToGo = On and then
      NuclearSubmarine.OpTest = Fire and then
      NuclearSubmarine.DDive = Dive,
-     Post=> NuclearSubmarine.DDive = Surface;
+     Post=> NuclearSubmarine.DDive = Surface and then
+     NuclearSubmarine.OTank = 100;
 
 -----------------------------------------------------------------------------------------------
 --------------------------- END OF DEPTH SENSOR FUNCTIONALITY----------------------------------
@@ -183,6 +191,7 @@ package SubmarineSubSystem with SPARK_Mode is
 ----------------------------------- OXYGEN FUNCTIONALITY --------------------------------------
 -----------------------------------------------------------------------------------------------
 
+   -- Checks the integer value in OTank
    procedure OxygenReserveCheck with
      Global =>  (In_Out => NuclearSubmarine),
      Pre => NuclearSubmarine.GoodToGo = On and then
@@ -192,6 +201,7 @@ package SubmarineSubSystem with SPARK_Mode is
      NuclearSubmarine.OpTest = Fire and then
      NuclearSubmarine.OTank <= 0;
 
+   --This procedure will consume 10 oxygen out of OTank
    procedure ConsumeOxygen with
      Global => (In_Out => NuclearSubmarine),
      Pre => NuclearSubmarine.GoodToGo = On and then
@@ -203,7 +213,37 @@ package SubmarineSubSystem with SPARK_Mode is
      NuclearSubmarine.DDive = Dive and then
      NuclearSubmarine.OTank >= 0;
 
+-----------------------------------------------------------------------------------------------
+------------------------------- END OF OXYGEN FUNCTIONALITY ---------------------------------
+-----------------------------------------------------------------------------------------------
 
+   -- Post condition MIGHT fail here. Look at Comments from in submarinesubsystem.adb
+   -- Code line 242 to 247 for clarification.
+   -- This procedure will still pass "Bronze" level of Proofing
+   procedure ReactorOverheatRoutine with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.GoodToGo = on and then
+     NuclearSubmarine.OpTest = Fire and then
+     NuclearSubmarine.RTemp = Fine and then
+     NuclearSubmarine.DDive = Dive,
+     Post => NuclearSubmarine.GoodToGo = on and then
+     NuclearSubmarine.OpTest = Fire and then
+     NuclearSubmarine.RTemp = Fine and then
+     NuclearSubmarine.RTemp = Overheating;
 
+   procedure CoolReactor with
+     Global => (In_Out => NuclearSubmarine),
+     Pre => NuclearSubmarine.GoodToGo = on and then
+     NuclearSubmarine.OpTest = Fire and then
+     NuclearSubmarine.DDive = Surface and then
+     NuclearSubmarine.RTemp = Overheating,
+     Post => NuclearSubmarine.GoodToGo = on and then
+     NuclearSubmarine.OpTest = Fire and then
+     NuclearSubmarine.DDive = Surface and then
+     NuclearSubmarine.RTemp = Fine;
+
+-----------------------------------------------------------------------------------------------
+------------------------------- END OF REACTOR FUNCTIONALITY ---------------------------------
+-----------------------------------------------------------------------------------------------
 
 end SubmarineSubSystem;

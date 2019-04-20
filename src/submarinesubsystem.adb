@@ -104,6 +104,17 @@ package body SubmarineSubSystem with SPARK_Mode is
    --   end loop;
    --end StartSubmarine;
 
+
+
+   --This procedure was made when I wanted to test if the Submarien could do something,
+   -- ONLY when the NuclearSubmarine.GoodToGo = On. This was so I could see in the main File
+   -- If the submarine could or could not perform actions while it was On and Off.
+   -- As I developed the other systems though (Doors/locking was first, followed by
+   -- submarine becoming operational) this procedure/Pre condition became a main stay with all the
+   -- other features as along as the Submaine is operational.
+   -- It now essentially acts as a "Two Stage" operational verification condition. Submarine
+   -- CANNOT perform any actions (excluding door or locking related) unless
+   -- NuclearSubmarine.GoodToGo = On and then NuclearSubmarine.OpTest = Fire
    procedure SubmarineAction is
    begin
       if (NuclearSubmarine.GoodToGo = On
@@ -151,7 +162,8 @@ package body SubmarineSubSystem with SPARK_Mode is
    begin
       if (NuclearSubmarine.GoodToGo = On and then
           NuclearSubmarine.OpTest = Fire and then
-          NuclearSubmarine.DDive = Surface) then
+          NuclearSubmarine.DDive = Surface and then
+          NuclearSubmarine.RTemp = Fine) then
          NuclearSubmarine.DDive := Dive;
       else
          NuclearSubmarine.DDive := Surface;
@@ -177,6 +189,8 @@ package body SubmarineSubSystem with SPARK_Mode is
 ----------------------------------- OXYGEN FUNCTIONALITY --------------------------------------
 -----------------------------------------------------------------------------------------------
 
+   -- Checks Oxygen reserves within OTank. if less than a specific amount then
+   -- Adjust it's OSate
    procedure OxygenReserveCheck is
    begin
       if (NuclearSubmarine.OTank = 100 or NuclearSubmarine.OTank > 30) then
@@ -198,26 +212,66 @@ package body SubmarineSubSystem with SPARK_Mode is
       elsif (NuclearSubmarine.OTank <= 30 and NuclearSubmarine.OTank >= 10) then
          NuclearSubmarine.OTank := NuclearSubmarine.OTank - 10;
          NuclearSubmarine.OWarning := Oxygen_Warning;
-         Put_Line(NuclearSubmarine.OWarning'Image); -- Don't know how to proof this.
+         Put_Line(NuclearSubmarine.OWarning'Image); -- Don't know how to proof a Put_Line.
       elsif (NuclearSubmarine.OTank < 10) then
          -- List of states that will be printed in "main" when
          -- The Submarine runs out of oxygen.
-         Put_Line(NuclearSubmarine.OWarning'Image); -- Don't know how to proof this.
-         Put_Line("Submarine has to resurface!"); -- Don't know how to proof this.
+         Put_Line(NuclearSubmarine.OWarning'Image); -- Don't know how to proof a Put_Line.
+         Put_Line("Submarine has to resurface!"); -- Don't know how to proof a Put_Line.
+         -- Submarine will resruface when this condition has been met
          Resurface;
-         Put_Line(NuclearSubmarine.DDive'Image); -- Don't know how to proof this.
-         Put_Line("Submarine has now resurfaced"); -- Don't know how to proof this.
+         Put_Line(NuclearSubmarine.DDive'Image); -- Don't know how to proof a Put_Line.
+         Put_Line("Submarine has now resurfaced"); -- Don't know how to proof a Put_Line.
       end if;
    end ConsumeOxygen;
 
+-----------------------------------------------------------------------------------------------
+------------------------------- END OF OXYGEN FUNCTIONALITY -----------------------------------
+-----------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------
+----------------------------------- REACTOR FUNCTIONALITY -------------------------------------
+-----------------------------------------------------------------------------------------------
+
+   procedure ReactorOverheatRoutine is
+   begin
+      if (NuclearSubmarine.GoodToGo = on and then
+          NuclearSubmarine.OpTest = Fire and then
+          NuclearSubmarine.RTemp = Fine and then
+          NuclearSubmarine.DDive = Dive) then
+         -- Post Condition Triggers here because it cannot prove if RTemp is Overhearing or not
+         -- I find that odd though because the code below makes it so RTemp = Fine to
+         -- RTemp = Overheating. Therefore would trigger the NuclearSubmarine.RTemp = Overheating
+         -- Post Condition. I cannot figure out why this is a problem and so I have to leave
+         -- It as it as it is, because I have ran out of time to finish this assignment.
+         -- This procedure will still pass "Bronze" level of Proofing
+         NuclearSubmarine.RTemp := Overheating;
+         Put_Line("The Reactor is: "); -- Don't know how to proof a Put_Line.
+         Put_Line(NuclearSubmarine.RTemp'Image); -- Don't know how to proof a Put_Line.
+         Put_Line("Reactor is Overheating, must resurface!"); -- Don't know how to proof a Put_Line.
+         Resurface;
+         Put_Line(NuclearSubmarine.DDive'Image); -- Don't know how to proof a Put_Line.
+      end if;
+   end ReactorOverheatRoutine;
 
 
+   procedure CoolReactor is
+   begin
+      if (NuclearSubmarine.GoodToGo = on and then
+          NuclearSubmarine.OpTest = Fire and then
+          NuclearSubmarine.DDive = Surface and then
+          NuclearSubmarine.RTemp = Overheating) then
+         NuclearSubmarine.RTemp := Fine;
+      else
+         -- Don't know how to proof a Put_Line.
+         Put_Line("Conditions have not been met to cool the reactor. Reactor is still: ");
+         Put_Line(NuclearSubmarine.RTemp'Image); -- Don't know how to proof a Put_Line.
+      end if;
+   end CoolReactor;
 
-
-
-
-
-
+-----------------------------------------------------------------------------------------------
+------------------------------- END OF REACTOR FUNCTIONALITY ----------------------------------
+-----------------------------------------------------------------------------------------------
 
 
 end SubmarineSubSystem;

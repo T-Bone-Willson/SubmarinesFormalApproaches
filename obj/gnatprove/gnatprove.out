@@ -10,30 +10,32 @@ Initialization                    .         .          .          .            .
 Non-Aliasing                      .         .          .          .            .           .          .
 Run-time Checks                   3         .          .          .     3 (CVC4)           .          .
 Assertions                        .         .          .          .            .           .          .
-Functional Contracts             17         .          .          .    17 (CVC4)           .          .
+Functional Contracts             20         .          .          .    19 (CVC4)           .          1
 LSP Verification                  .         .          .          .            .           .          .
 -------------------------------------------------------------------------------------------------------
-Total                            20         .          .          .    20 (100%)           .          .
+Total                            23         .          .          .     22 (96%)           .     1 (4%)
 
 
 Analyzed 2 units
 in unit main, 0 subprograms and packages out of 1 analyzed
   Main at main.adb:4 skipped
-in unit submarinesubsystem, 17 subprograms and packages out of 17 analyzed
+in unit submarinesubsystem, 19 subprograms and packages out of 19 analyzed
   SubmarineSubSystem at submarinesubsystem.ads:1 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
-  SubmarineSubSystem.ChangeDepth at submarinesubsystem.ads:151 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (2 checks)
-  SubmarineSubSystem.ConsumeOxygen at submarinesubsystem.ads:195 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (4 checks)
-  SubmarineSubSystem.D1Close at submarinesubsystem.ads:74 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.D1Lock at submarinesubsystem.ads:88 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.D1Open at submarinesubsystem.ads:102 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.D1Unlock at submarinesubsystem.ads:118 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.D2Close at submarinesubsystem.ads:81 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.D2Lock at submarinesubsystem.ads:95 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.D2Open at submarinesubsystem.ads:110 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.D2Unlock at submarinesubsystem.ads:126 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.DepthMeterCheck at submarinesubsystem.ads:143 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.DiveOrNot at submarinesubsystem.ads:163 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.OxygenReserveCheck at submarinesubsystem.ads:186 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.Resurface at submarinesubsystem.ads:171 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.StartSubmarine at submarinesubsystem.ads:47 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
-  SubmarineSubSystem.SubmarineAction at submarinesubsystem.ads:57 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.ChangeDepth at submarinesubsystem.ads:157 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (2 checks)
+  SubmarineSubSystem.ConsumeOxygen at submarinesubsystem.ads:205 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (4 checks)
+  SubmarineSubSystem.CoolReactor at submarinesubsystem.ads:234 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.D1Close at submarinesubsystem.ads:80 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.D1Lock at submarinesubsystem.ads:94 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.D1Open at submarinesubsystem.ads:108 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.D1Unlock at submarinesubsystem.ads:124 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.D2Close at submarinesubsystem.ads:87 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.D2Lock at submarinesubsystem.ads:101 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.D2Open at submarinesubsystem.ads:116 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.D2Unlock at submarinesubsystem.ads:132 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.DepthMeterCheck at submarinesubsystem.ads:149 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.DiveOrNot at submarinesubsystem.ads:169 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.OxygenReserveCheck at submarinesubsystem.ads:195 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.ReactorOverheatRoutine at submarinesubsystem.ads:223 flow analyzed (0 errors, 0 checks and 0 warnings) and not proved, 1 checks out of 2 proved
+  SubmarineSubSystem.Resurface at submarinesubsystem.ads:178 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.StartSubmarine at submarinesubsystem.ads:53 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  SubmarineSubSystem.SubmarineAction at submarinesubsystem.ads:63 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)

@@ -1,10 +1,23 @@
-submarinesubsystem.adb:201:10: warning: no Global contract available for "Put_Line"
-submarinesubsystem.adb:201:10: warning: assuming "Put_Line" has no effect on global items
-submarinesubsystem.adb:203:10: warning: no Global contract available for "Put_Line"
-submarinesubsystem.adb:203:10: warning: assuming "Put_Line" has no effect on global items
 submarinesubsystem.adb:204:10: warning: no Global contract available for "Put_Line"
 submarinesubsystem.adb:204:10: warning: assuming "Put_Line" has no effect on global items
-submarinesubsystem.adb:206:10: warning: no Global contract available for "Put_Line"
-submarinesubsystem.adb:206:10: warning: assuming "Put_Line" has no effect on global items
-submarinesubsystem.adb:207:10: warning: no Global contract available for "Put_Line"
-submarinesubsystem.adb:207:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:208:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:208:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:209:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:209:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:212:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:212:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:213:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:213:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:238:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:238:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:239:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:239:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:240:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:240:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:242:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:242:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:255:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:255:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.adb:256:10: warning: no Global contract available for "Put_Line"
+submarinesubsystem.adb:256:10: warning: assuming "Put_Line" has no effect on global items
+submarinesubsystem.ads:232:06: medium: postcondition might fail, cannot prove NuclearSubmarine.RTemp = Overheating[#0]

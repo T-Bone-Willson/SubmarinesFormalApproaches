@@ -69,9 +69,9 @@
   <proof prover="1" obsolete="true"><result status="unknown" steps="54"/></proof>
   <transf name="split_disj" >
    <goal name="WP_parameter def.0.0" expl="postcondition">
-   <proof prover="1" obsolete="true"><result status="unknown" steps="54"/></proof>
    </goal>
    <goal name="WP_parameter def.0.1" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="unknown" steps="54"/></proof>
    </goal>
   </transf>
   </goal>
@@ -170,14 +170,14 @@
   </goal>
   <goal name="WP_parameter def.1" expl="postcondition" proved="true">
   <proof prover="0"><result status="valid" steps="5"/></proof>
-  <proof prover="1" obsolete="true"><result status="unknown" steps="120"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" steps="99"/></proof>
   <transf name="split_disj" >
    <goal name="WP_parameter def.1.0" expl="postcondition">
-   <proof prover="1" obsolete="true"><result status="unknown" steps="82"/></proof>
    </goal>
    <goal name="WP_parameter def.1.1" expl="postcondition">
    </goal>
    <goal name="WP_parameter def.1.2" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="unknown" steps="99"/></proof>
    </goal>
   </transf>
   </goal>
@@ -196,12 +196,12 @@
   </goal>
   <goal name="WP_parameter def.3" expl="postcondition" proved="true">
   <proof prover="0"><result status="valid" steps="5"/></proof>
-  <proof prover="1" obsolete="true"><result status="unknown" steps="99"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" steps="120"/></proof>
   <transf name="split_disj" >
    <goal name="WP_parameter def.3.0" expl="postcondition">
-   <proof prover="1" obsolete="true"><result status="unknown" steps="99"/></proof>
    </goal>
    <goal name="WP_parameter def.3.1" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="unknown" steps="82"/></proof>
    </goal>
    <goal name="WP_parameter def.3.2" expl="postcondition">
    </goal>
@@ -241,6 +241,9 @@
   <goal name="WP_parameter def.0" expl="postcondition" proved="true">
   <proof prover="0"><result status="valid" steps="5"/></proof>
   </goal>
+  <goal name="WP_parameter def.1" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" steps="5"/></proof>
+  </goal>
  </transf>
  </goal>
 </theory>
@@ -252,11 +255,11 @@
   <proof prover="1" obsolete="true"><result status="unknown" steps="160"/></proof>
   <transf name="split_disj" >
    <goal name="WP_parameter def.0.0" expl="postcondition">
-   <proof prover="1" obsolete="true"><result status="unknown" steps="86"/></proof>
    </goal>
    <goal name="WP_parameter def.0.1" expl="postcondition">
    </goal>
    <goal name="WP_parameter def.0.2" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="unknown" steps="86"/></proof>
    </goal>
   </transf>
   </goal>
@@ -265,11 +268,11 @@
   <proof prover="1" obsolete="true"><result status="unknown" steps="160"/></proof>
   <transf name="split_disj" >
    <goal name="WP_parameter def.1.0" expl="postcondition">
-   <proof prover="1" obsolete="true"><result status="unknown" steps="86"/></proof>
    </goal>
    <goal name="WP_parameter def.1.1" expl="postcondition">
    </goal>
    <goal name="WP_parameter def.1.2" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="unknown" steps="86"/></proof>
    </goal>
   </transf>
   </goal>
@@ -289,9 +292,9 @@
  </transf>
  </goal>
 </theory>
-<theory name="Submarinesubsystem__consumeoxygen__subprogram_def">
- <goal name="WP_parameter def" expl="VC for def">
- <transf name="split_goal_wp_conj" >
+<theory name="Submarinesubsystem__consumeoxygen__subprogram_def" proved="true">
+ <goal name="WP_parameter def" expl="VC for def" proved="true">
+ <transf name="split_goal_wp_conj" proved="true" >
   <goal name="WP_parameter def.0" expl="precondition" proved="true">
   <proof prover="0"><result status="valid" steps="37"/></proof>
   <proof prover="1" obsolete="true"><result status="unknown" steps="66"/></proof>
@@ -309,53 +312,123 @@
   <goal name="WP_parameter def.4" expl="precondition" proved="true">
   <proof prover="0"><result status="valid" steps="5"/></proof>
   </goal>
-  <goal name="WP_parameter def.5" expl="postcondition">
-  <proof prover="0"><result status="unknown" steps="204"/></proof>
+  <goal name="WP_parameter def.5" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" steps="28"/></proof>
   <proof prover="1" obsolete="true"><result status="unknown" steps="193"/></proof>
   <transf name="split_disj" >
    <goal name="WP_parameter def.5.0" expl="postcondition">
    </goal>
    <goal name="WP_parameter def.5.1" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="unknown" steps="94"/></proof>
    </goal>
    <goal name="WP_parameter def.5.2" expl="postcondition">
-   <proof prover="1" obsolete="true"><result status="unknown" steps="94"/></proof>
    </goal>
    <goal name="WP_parameter def.5.3" expl="postcondition">
    </goal>
   </transf>
   </goal>
-  <goal name="WP_parameter def.6" expl="postcondition">
-  <proof prover="0"><result status="unknown" steps="204"/></proof>
+  <goal name="WP_parameter def.6" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" steps="28"/></proof>
   <proof prover="1" obsolete="true"><result status="unknown" steps="197"/></proof>
   <transf name="split_disj" >
    <goal name="WP_parameter def.6.0" expl="postcondition">
    </goal>
    <goal name="WP_parameter def.6.1" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="unknown" steps="94"/></proof>
    </goal>
    <goal name="WP_parameter def.6.2" expl="postcondition">
-   <proof prover="1" obsolete="true"><result status="unknown" steps="94"/></proof>
    </goal>
    <goal name="WP_parameter def.6.3" expl="postcondition">
    </goal>
   </transf>
   </goal>
-  <goal name="WP_parameter def.7" expl="postcondition">
-  <proof prover="0"><result status="unknown" steps="197"/></proof>
-  <proof prover="1"><result status="unknown" steps="188"/></proof>
+  <goal name="WP_parameter def.7" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" steps="28"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" steps="188"/></proof>
   <transf name="split_disj" >
    <goal name="WP_parameter def.7.0" expl="postcondition">
    </goal>
    <goal name="WP_parameter def.7.1" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="unknown" steps="90"/></proof>
    </goal>
    <goal name="WP_parameter def.7.2" expl="postcondition">
-   <proof prover="1"><result status="unknown" steps="90"/></proof>
    </goal>
    <goal name="WP_parameter def.7.3" expl="postcondition">
    </goal>
   </transf>
   </goal>
   <goal name="WP_parameter def.8" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" steps="77"/></proof>
+  <proof prover="0"><result status="valid" steps="25"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+<theory name="Submarinesubsystem__reactoroverheatroutine__subprogram_def">
+ <goal name="WP_parameter def" expl="VC for def">
+ <transf name="split_goal_wp_conj" >
+  <goal name="WP_parameter def.0" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" steps="5"/></proof>
+  </goal>
+  <goal name="WP_parameter def.1" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" steps="5"/></proof>
+  </goal>
+  <goal name="WP_parameter def.2" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" steps="5"/></proof>
+  </goal>
+  <goal name="WP_parameter def.3" expl="postcondition">
+  <proof prover="0"><result status="unknown" steps="110"/></proof>
+  </goal>
+  <goal name="WP_parameter def.4" expl="postcondition">
+  <proof prover="0"><result status="unknown" steps="110"/></proof>
+  <proof prover="1"><result status="unknown" steps="110"/></proof>
+  <transf name="split_disj" >
+   <goal name="WP_parameter def.4.0" expl="postcondition">
+   <proof prover="1"><result status="unknown" steps="110"/></proof>
+   </goal>
+   <goal name="WP_parameter def.4.1" expl="postcondition">
+   </goal>
+  </transf>
+  </goal>
+  <goal name="WP_parameter def.5" expl="postcondition">
+  <proof prover="0"><result status="unknown" steps="104"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" steps="119"/></proof>
+  <transf name="split_disj" >
+   <goal name="WP_parameter def.5.0" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="unknown" steps="72"/></proof>
+   </goal>
+   <goal name="WP_parameter def.5.1" expl="postcondition">
+   </goal>
+  </transf>
+  </goal>
+  <goal name="WP_parameter def.6" expl="postcondition">
+  <proof prover="0"><result status="unknown" steps="96"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" steps="104"/></proof>
+  <transf name="split_disj" >
+   <goal name="WP_parameter def.6.0" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="unknown" steps="94"/></proof>
+   </goal>
+   <goal name="WP_parameter def.6.1" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="unknown" steps="72"/></proof>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+<theory name="Submarinesubsystem__coolreactor__subprogram_def" proved="true">
+ <goal name="WP_parameter def" expl="VC for def" proved="true">
+ <transf name="split_goal_wp_conj" proved="true" >
+  <goal name="WP_parameter def.0" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" steps="5"/></proof>
+  </goal>
+  <goal name="WP_parameter def.1" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" steps="5"/></proof>
+  </goal>
+  <goal name="WP_parameter def.2" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" steps="5"/></proof>
+  </goal>
+  <goal name="WP_parameter def.3" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" steps="5"/></proof>
   </goal>
  </transf>
  </goal>
